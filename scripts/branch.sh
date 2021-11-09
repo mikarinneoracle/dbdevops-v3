@@ -1,41 +1,43 @@
-cd dbdevops
+read -p "Task ID: " task_id
 
-echo "*** ADD CHANGES TO DEV FEATURE BRANCH TO REPO ***"
+read -p "Dev db schema/user: " schema
 
-git config --global user.email "mika.rinne@oracle.com"
-git config --global user.name "Mika Rinne"
-git checkout $task_id-task
+read -s -p "Dev db password: " pwd
 
-sed -i "s/SCHEMA/${dev_db_schema}/g" gen.sql
-sed -i "s/PWD/${dev_db_pwd}/g" gen.sql
-sed -i "s/CONN/dev${task_id}_high/g" gen.sql
-sed -i "s/WALLET/wallet-${task_id}.zip/g" gen.sql
-if [ -n "${tables}" ] &&  [ "${tables}" != "-" ] &&  [ "${tables}" != "n" ]; then
-    sed -i "s/TABLECONFIG/lb data -object ${tables}/g" gen.sql
+printf "\n"
+
+read -p "Apex app id (optional): " application_id
+
+read -p "Tables data (leave empty for all tables, N for no tables): " tables
+if [ -n "${tables}" ] && [ "${tables}" != "n" ]; then
+    export tablesconfig="lb data -object ${tables}"
 else
     if [ "${tables}" == "n" ]; then
-        sed -i "s/TABLECONFIG//g" gen.sql
+        export tablesconfig=""
     else
-        sed -i "s/TABLECONFIG/lb data/g" gen.sql
+        export tablesconfig="lb data"
     fi    
 fi
 
-cat gen.sql
-sql /nolog @./gen.sql
+cd ..dbdevops
 
-if [ -n "${application_id}" ] &&  [ "${application_id}" != "-" ]; then
-    sed -i "s/SCHEMA/${dev_db_schema}/g" gen_apex.sql
-    sed -i "s/PWD/${dev_db_pwd}/g" gen_apex.sql
-    sed -i "s/CONN/dev${task_id}_high/g" gen_apex.sql
-    sed -i "s/WALLET/wallet-${task_id}.zip/g" gen_apex.sql
-    sed -i "s/APP_ID/${application_id}/g" gen_apex.sql
-    cat gen_apex.sql
+echo "*** ADD CHANGES FROM Dev${task_id} TO DEV FEATURE BRANCH ${task_id}-task ***"
+
+git checkout $task_id-task
+
+printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\ntables\nlb genschema -split\n${tablesconfig}\nexit" > gen.sql
+sql /nolog @./gen.sql
+rm -f gen.sql
+
+if [ -n "${application_id}" ]; then
+    printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\ntables\nlb genobject -type apex -applicationid ${application_id} -skipExportDate -expOriginalIds\nexit" > gen_apex.sql
     sql /nolog @./gen_apex.sql
+    rm -f gen_apex.sql
 fi
 
-# git rm wallet-$task_id.zip # Let's keep the wallet for subsequential updates
-git restore gen.sql
-git restore gen_apex.sql
+# git rm wallet-$task_id.zip # Let's keep the wallet for subsequential updates, removed in destroy for the master branch instead
 git add .
 git commit -m "feature branch for task ${task_id}"
 git push origin $task_id-task
+
+git checkout master

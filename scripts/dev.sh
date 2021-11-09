@@ -13,6 +13,7 @@ export TF_VAR_task_id=$task_id
 
 export tf_state_file="${os_bucket_tf}task-${task_id}.state"
 echo $tf_state_file
+cp main.tf copy_main.tf
 sed -i "s|OS_TF|${tf_state_file}|g" main.tf
 
 terraform init > tf-init.out
@@ -26,6 +27,7 @@ echo "*** LAUNCHES A DEV INSTANCE Dev${task_id} FROM REPO AND CREATES FEATURE BR
 terraform apply -auto-approve > tf.out
 tail -2 tf.out
 export url="$(grep "autonomous_database_wallet_preauth =" tf.out | grep -o '".*"' | tr -d '"')"
+mv copy_main.tf main.tf
 
 cd ../dbdevops
 
@@ -36,3 +38,5 @@ git checkout -b $task_id-task
 git add wallet-$task_id.zip
 git commit -m "feature branch for task ${task_id}"
 git push origin $task_id-task
+
+git checkout master
