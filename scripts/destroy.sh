@@ -9,7 +9,7 @@ export TF_VAR_task_id=$task_id
 
 export tf_state_file="${os_bucket_tf}task-${task_id}.state"
 echo $tf_state_file
-cp main.tf copy_main.tf
+cp main.tf copy_main
 sed -i "s|OS_TF|${tf_state_file}|g" main.tf
 
 terraform init > tf-init.out
@@ -17,7 +17,7 @@ terraform init > tf-init.out
 echo "*** DESTROY Dev-${task_id} WITH A TASK ID ${task_id} ***"
 terraform destroy -auto-approve > tf_destroy.out
 
-mv copy_main.tf main.tf
+mv copy_main main.tf
 
 cd ../dbdevops
 
