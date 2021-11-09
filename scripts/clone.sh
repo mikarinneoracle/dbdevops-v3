@@ -7,9 +7,6 @@ read -s -p "Prod db password: " pwd
 printf "\n"
  
 read -p "Apex app id (optional): " application_id
-if [ -z "${application_id}" ]; then
-  export application_id=-
-fi
  
 read -p "Tables data (leave empty for all tables, N for no tables): " tables
 if [ -n "${tables}" ] && [ "${tables}" != "n" ]; then
@@ -36,7 +33,7 @@ printf "set cloudconfig ./wallet.zip\nconn ${schema}/${pwd}@prod_high\ntables\nl
 sql /nolog @./gen.sql
 rm -f gen.sql
 
-if [ -n "${application_id}" ] &&  [ "${application_id}" != "-" ]; then
+if [ -n "${application_id}" ]; then
     printf "set cloudconfig ./wallet.zip\nconn ${schema}/${pwd}@prod_high\ntables\nlb genobject -type apex -applicationid ${application_id} -skipExportDate -expOriginalIds\nexit" > gen_apex.sql
     sql /nolog @./gen_apex.sql
     rm -f gen_apex.sql

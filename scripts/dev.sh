@@ -2,13 +2,13 @@ export $(grep -v '^#' settings.env | xargs -d '\n')
  
 read -p "Task ID: " task_id
 
-read -s -p "Dev db password: " dev_db_pwd
+read -s -p "Dev db password: " pwd
 
 cd ../terraform
 
 export TF_VAR_tenancy_ocid=$tenancy_ocid
 export TF_VAR_compartment_ocid=$compartment_ocid
-export TF_VAR_dev_db_pwd=$dev_db_pwd
+export TF_VAR_dev_db_pwd=$pwd
 export TF_VAR_task_id=$task_id
 
 export tf_state_file="${os_bucket_tf}task-${task_id}.state"
