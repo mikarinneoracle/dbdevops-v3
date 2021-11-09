@@ -2,6 +2,12 @@ export $(grep -v '^#' settings.env | xargs -d '\n')
 
 read -p "Task ID: " task_id
 
+read -p "This will delete any existing resources for task ID ${task_id}, type Y to continue: " answer
+if [ "${answer}" != "Y" ]; then
+    echo "OK, quitting."
+    exit
+fi
+
 cd ../terraform
 
 export TF_VAR_tenancy_ocid=$tenancy_ocid
