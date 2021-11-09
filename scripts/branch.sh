@@ -1,3 +1,5 @@
+export $(grep -v '^#' settings.env | xargs -d '\n')
+
 read -p "Task ID: " task_id
 
 read -p "Dev db schema/user: " schema

@@ -1,3 +1,5 @@
+export $(grep -v '^#' settings.env | xargs -d '\n')
+
 cd dbdevops
 
 wget $prod_db_wallet_preauth -O wallet.zip
