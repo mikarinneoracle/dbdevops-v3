@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="3158478e5f587572aeb284c85d35d6791ef413a2" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOraclePackageBody objectName="EXT_API" objectType="PACKAGE_BODY" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "APP_CORE"."EXT_API" 
+as 
+ 
+
+
+ 
+procedure get_weather_now (p_cl_id in number 
+                          ,p_city in varchar2 
+                          ,p_country in varchar2 
+                          ,p_temp out varchar2
+                          ,p_weather out varchar2
+                          ) 
+is  
+ 
+  l_clob  CLOB; 
+  l_json           apex_json.t_values;
+  l_url  varchar2(255) := 'https://api.openweathermap.org/data/2.5/weather?q='||p_city||','||p_country||'&appid='||g_api_key||'&units=metric'; 
+  l_temp varchar2(255) ;
+  l_weather varchar2(255) ;
+ 
+BEGIN 
+  
+    l_clob := apex_web_service.make_rest_request( 
+        p_url =>l_url, 
+        p_http_method => 'GET' 
+        ); 
+ 
+ APEX_JSON.parse(p_values   =>l_json
+                 ,p_source   => l_clob);
+
+ p_temp := APEX_JSON.get_varchar2(p_path => 'main.temp', p_values => l_json) ;
+ p_weather := APEX_JSON.get_varchar2(p_path => 'weather[1].main', p_values => l_json) ;
+
+ --dbms_output.put_line (p_temp ||' '||p_weather);
+
+/*
+ if p_cl_id is not null
+  then
+     merge into 
+
+  */
+ 
+end get_weather_now; 
+ 
+ 
+procedure get_weather_forecast (p_cl_id in number  ) 
+is  
+ 
+  l_clob  CLOB; 
+  l_json           apex_json.t_values;
+  l_url  varchar2(255) := 'https://api.openweathermap.org/data/2.5/onecall?lat=[lat]&lon=[lon]&exclude=minutely,hourly&appid='||g_api_key||'&units=metric'; 
+  l_temp varchar2(255) ;
+  l_weather varchar2(255) ;
+  l_date date;
+  l_count number;
+  l_date_ep number;
+ 
+BEGIN 
+ 
+
+
+ for r in (select CL_LAT , CL_LONG from company_locations where cl_id =  p_cl_id)
+  loop
+   l_url :=  replace (l_url, '[lat]',r.cl_lat);
+   l_url :=  replace (l_url, '[lon]',r.cl_long);
+  end loop;
+ --dbms_output.put_line (l_url);
+   
+ l_clob := apex_web_service.make_rest_request( 
+        p_url =>l_url, 
+        p_http_method => 'GET' 
+        ); 
+ 
+  APEX_JSON.parse(p_values   =>l_json
+                 ,p_source   => l_clob);
+ 
+ l_count:=apex_json.get_count(p_path=>'daily',p_values => l_json);
+-- dbms_output.put_line (l_count);
+ 
+ for i in 1..l_count
+ loop
+   l_date_ep := APEX_JSON.get_varchar2(p_path => 'daily[%d].dt',p0=>i, p_values => l_json) ;
+   l_date :=  to_date('01-JAN-1970','dd-mon-yyyy')+(l_date_ep/60/60/24) ;
+   l_temp    := APEX_JSON.get_varchar2(p_path=>'daily[%d].temp.day',p0=>i, p_values => l_json) ;
+   l_weather := APEX_JSON.get_varchar2(p_path => 'daily[%d].weather[1].main',p0=>i, p_values => l_json) ;
+   dbms_output.put_line (l_date||' '||l_temp ||' '||l_weather);
+
+
+MERGE INTO COMPANY_LOC_STATUS e
+    USING (select p_cl_id as w_cl_id, trunc(l_date) as w_date, floor(l_temp) as w_temp, l_weather as w_weather from dual ) h
+    ON (e.cls_cl_id = h.w_cl_id and e.CLS_DATE = h.w_date)
+  WHEN MATCHED THEN
+    UPDATE SET e.CLS_WEATHER = h.w_weather
+              ,e.CLS_TEMP = h.w_temp 
+  WHEN NOT MATCHED THEN
+    INSERT (cls_cl_id, CLS_DATE, CLS_WEATHER, CLS_TEMP)
+    VALUES (h.w_cl_id, h.w_date, h.w_weather, w_temp);
+ end loop;
+  
+ 
+ 
+end get_weather_forecast; 
+ 
+
+ procedure get_locations_weather
+ is
+ begin
+ for r in (select cl_id from company_locations)
+  loop
+    get_weather_forecast (r.cl_id);
+  
+  end loop;
+
+  end get_locations_weather;
+
+
+procedure get_travel_data
+   (p_from_lat in varchar2
+   ,p_from_lon in varchar2
+   ,p_to_lat in varchar2
+   ,p_to_lon in varchar2
+   ,p_travel_by in varchar2
+   --,p_arrive_at in varchar2
+   ,p_travel_time out number
+   ,p_travel_delay out number
+   ,p_travel_length out number
+   ,p_travel_time_hist out number
+   )
+   is
+   
+    l_clob  CLOB; 
+    l_json           apex_json.t_values;
+    l_count number;
+    l_travel_time number;
+    l_travel_delay number;
+    l_travel_length number;
+    l_travel_time_hist number;
+
+
+    l_url  varchar2(255) := 'https://api.tomtom.com/routing/1/calculateRoute/'||trim(p_from_lat)||','||trim(p_from_lon)||':'||trim(p_to_lat)||','||trim(p_to_lon)||'/json?key='||g_travel_api_key; 
+  --travelMode
+  --vehicleEngineType = combustion / ?
+  --arriveAt dateTime
+  --traffic=true
+  --avoid=unpavedRoads
+  --computeTravelTimeFor=all
+
+
+
+   begin
+
+    l_url := l_url ||'&travelMode='||p_travel_by;
+    l_url := l_url ||'&traffic=true';
+    l_url := l_url ||'&computeTravelTimeFor=all';
+    --l_url := l_url ||'&arriveAt='||p_arrive_at;
+ 
+ app_tools.ins_tempie (p_clob => null,p_msg => l_url);
+
+    l_clob := apex_web_service.make_rest_request( 
+        p_url =>l_url, 
+        p_http_method => 'GET' 
+        ); 
+ 
+ app_tools.ins_tempie (p_clob => l_clob,p_msg => l_url);
+ if l_clob != '<h1>Developer Over Qps</h1>'
+ then
+    APEX_JSON.parse(p_values   =>l_json
+                 ,p_source   => l_clob);
+
+ --dbms_output.put_line (l_clob);                 
+
+    l_count:=apex_json.get_count(p_path=>'routes',p_values => l_json);
+    dbms_output.put_line (l_count);
+
+    p_travel_time         := APEX_JSON.get_varchar2(p_path=>'routes[%d].summary.travelTimeInSeconds',p0=>1, p_values => l_json) ;
+    p_travel_delay        := APEX_JSON.get_varchar2(p_path=>'routes[%d].summary.trafficDelayInSeconds',p0=>1, p_values => l_json) ;
+    p_travel_length       := APEX_JSON.get_varchar2(p_path=>'routes[%d].summary.lengthInMeters',p0=>1, p_values => l_json) ;
+    p_travel_time_hist    := APEX_JSON.get_varchar2(p_path=>'routes[%d].summary.historicTrafficTravelTimeInSeconds',p0=>1, p_values => l_json) ;
+  
+  else 
+    p_travel_time := 0;
+    p_travel_delay := 0;
+    p_travel_length := 0;
+    p_travel_time_hist :=0;
+  end if;
+
+  --   dbms_output.put_line (l_travel_time||' '|| l_travel_delay||' '|| l_travel_length|| ' '||l_travel_time_hist);
+
+exception when others
+ then  dbms_output.put_line (l_clob);         
+   raise;
+end get_travel_data;
+  
+end ext_api; 
+
+]]></n0:source>
+		</n0:createOraclePackageBody>
+	</changeSet>
+</databaseChangeLog>

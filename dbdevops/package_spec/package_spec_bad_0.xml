@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="91612e829f12deb433c6cad4f34e14066599a6f0" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOraclePackageSpec objectName="%OBJECT_NAME%" objectType="PACKAGE_SPEC" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE PACKAGE "APP_CORE"."BOOK_API" book_api
+as
+
+procedure upd_loc_status
+(p_cl_id in number
+,p_date in date);
+
+function find_booking_suggestion
+(p_secret in varchar2
+,p_date in date
+) return number;
+
+function get_wp_book_status
+(p_cw_id in number
+,p_date in date)
+return number;
+
+function get_wp_avail
+(p_cw_id in number
+,p_date in date
+,p_book_by in number)
+return number;
+
+function get_wp
+(p_up_id in number
+,p_date in date
+,p_cl_id in number)
+return number;
+
+function reserve_booking
+ (p_ubs_id in number,
+  p_travel_by in varchar2
+ ) return number;
+
+ function confirm_booking
+ (p_ubs_id in number)
+ return number;
+
+ procedure get_booking_travel
+(p_ubs_id in number
+);
+
+
+procedure get_random_weather_temp
+(p_date in date
+,p_temp out number
+,p_weather out varchar2);
+
+
+procedure gen_rand_location_weather;
+
+
+ 
+procedure suggest_booking
+(p_up_id in number
+,p_date in date);
+ 
+
+ function remove_booking
+ (p_ub_id in number
+ )
+ return number;
+
+
+
+ 
+end ;
+
+
+]]></n0:source>
+		</n0:createOraclePackageSpec>
+	</changeSet>
+</databaseChangeLog>

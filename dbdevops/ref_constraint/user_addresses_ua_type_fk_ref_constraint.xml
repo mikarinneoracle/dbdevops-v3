@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="9edc96eb6477adeb1ff5b46937da393ca90da644" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOracleRefConstraint objectName="USER_ADDRESSES_UA_TYPE_FK" objectType="REF_CONSTRAINT" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  ALTER TABLE "APP_CORE"."USER_ADDRESSES" ADD CONSTRAINT "USER_ADDRESSES_UA_TYPE_FK" FOREIGN KEY ("UA_TYPE")
+	  REFERENCES "APP_CORE"."APP_META" ("AM_ID") ON DELETE CASCADE ENABLE]]></n0:source>
+		</n0:createOracleRefConstraint>
+	</changeSet>
+</databaseChangeLog>
