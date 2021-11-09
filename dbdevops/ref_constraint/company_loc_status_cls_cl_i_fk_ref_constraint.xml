@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="2003383562dcd1f198741f62d22f680261259559" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOracleRefConstraint objectName="COMPANY_LOC_STATUS_CLS_CL_I_FK" objectType="REF_CONSTRAINT" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  ALTER TABLE "APP_CORE"."COMPANY_LOC_STATUS" ADD CONSTRAINT "COMPANY_LOC_STATUS_CLS_CL_I_FK" FOREIGN KEY ("CLS_CL_ID")
+	  REFERENCES "APP_CORE"."COMPANY_LOCATIONS" ("CL_ID") ON DELETE CASCADE ENABLE]]></n0:source>
+		</n0:createOracleRefConstraint>
+	</changeSet>
+</databaseChangeLog>
