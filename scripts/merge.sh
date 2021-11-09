@@ -8,6 +8,7 @@ printf "\n"
  
 read -p "Apex app id (optional): " application_id
 
+mkdir ../dbdevops #assuming we have this already, but just make sure
 cd ../dbdevops
 
 wget $prod_db_wallet_preauth -O wallet.zip

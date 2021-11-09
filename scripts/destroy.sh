@@ -23,6 +23,7 @@ tail -2 tf_destroy.out
 
 mv copy_main main.tf
 
+mkdir ../dbdevops #assuming we have this already, but just make sure
 cd ../dbdevops
 
 # This does not work with protected master branches! 

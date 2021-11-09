@@ -21,6 +21,7 @@ else
     fi    
 fi
 
+mkdir ../dbdevops #assuming we have this already, but just make sure
 cd ..dbdevops
 
 echo "*** ADD CHANGES FROM Dev${task_id} TO DEV FEATURE BRANCH ${task_id}-task ***"

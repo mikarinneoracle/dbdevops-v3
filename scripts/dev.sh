@@ -12,7 +12,8 @@ export TF_VAR_dev_db_pwd=$pwd
 export TF_VAR_task_id=$task_id
 
 export tf_state_file="${os_bucket_tf}task-${task_id}.state"
-echo $tf_state_file
+#echo $tf_state_file
+
 cp main.tf copy_main
 sed -i "s|OS_TF|${tf_state_file}|g" main.tf
 
@@ -29,6 +30,7 @@ tail -2 tf.out
 export url="$(grep "autonomous_database_wallet_preauth =" tf.out | grep -o '".*"' | tr -d '"')"
 mv copy_main main.tf
 
+mkdir ../dbdevops #assuming we have this already, but just make sure
 cd ../dbdevops
 
 wget $url -O wallet-$task_id
