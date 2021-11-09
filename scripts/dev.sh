@@ -15,11 +15,11 @@ sed -i "s|OS_TF|${tf_state_file}|g" main.tf
 terraform init > tf-init.out
 
 echo "*** destroy any previous installs with a task id ${task_id} ***"
-terraform destroy -auto-approve > tf_destroy.out
+terraform destroy -auto-approve # > tf_destroy.out
 git push origin --delete $task_id-task
 
 echo "*** LAUNCHES A DEV INSTANCE Dev${task_id} FROM REPO AND CREATES FEATURE BRANCH ${task_id}-task ***"
-terraform apply -auto-approve
+terraform apply -auto-approve # > tf.out
 export url="$(grep "autonomous_database_wallet_preauth =" tf.out | grep -o '".*"' | tr -d '"')"
 
 cd ../dbdevops
