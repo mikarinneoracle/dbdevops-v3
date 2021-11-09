@@ -1,4 +1,5 @@
 export $(grep -v '^#' settings.env | xargs -d '\n')
+env
 
 read -p "Prod db schema/user: " schema
  
@@ -12,7 +13,7 @@ if [ -z "${application_id}" ]; then
 fi
  
 read -p "Tables data (leave empty for all tables, N for no tables): " tables
-if [ -n "${tables}" ] &&  &&  [ "${tables}" != "n" ]; then
+if [ -n "${tables}" ] && [ "${tables}" != "n" ]; then
     export tablesconfig="lb data -object ${tables}"
 else
     if [ "${tables}" == "n" ]; then
