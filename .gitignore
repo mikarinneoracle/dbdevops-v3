@@ -1,4 +1,7 @@
 .DS_Store
 terraform/Wallet*
+terraform/wallet*
+terraform/*.out
+terraform/.terraform*
 dbdevops/*.sql
 scripts/settings.env
