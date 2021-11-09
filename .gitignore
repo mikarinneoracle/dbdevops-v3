@@ -1,0 +1,4 @@
+.DS_Store
+terraform/Wallet*
+dbdevops/*.sql
+scripts/settings.env
