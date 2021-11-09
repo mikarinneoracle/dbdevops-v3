@@ -2,7 +2,7 @@ export $(grep -v '^#' settings.env | xargs -d '\n')
  
 read -p "Task ID: " task_id
 
-read -s -p "Dev db schema/user: " dev_db_pwd
+read -s -p "Dev db password: " dev_db_pwd
 
 cd ../terraform
 
@@ -19,7 +19,7 @@ terraform destroy -auto-approve > tf_destroy.out
 git push origin --delete $task_id-task
 
 echo "*** LAUNCHES A DEV INSTANCE Dev${task_id} FROM REPO AND CREATES FEATURE BRANCH ${task_id}-task ***"
-terraform apply -auto-approve > tf.out
+terraform apply -auto-approve
 export url="$(grep "autonomous_database_wallet_preauth =" tf.out | grep -o '".*"' | tr -d '"')"
 
 cd ../dbdevops
