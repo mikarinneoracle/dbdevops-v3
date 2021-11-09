@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="97917b939f331174aad0c64d58b38e3c61c9089a" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="UBS_ML" objectType="VIEW" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  <VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>APP_CORE</SCHEMA>
+   <NAME>UBS_ML</NAME>
+   <DEFAULT_COLLATION>USING_NLS_COMP</DEFAULT_COLLATION>
+   <COL_LIST>
+      <COL_LIST_ITEM>
+         <NAME>UBS_ID</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_UP_ID</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>DAY_OF_WEEK</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_CL_ID</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_CW_ID</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_PARKING_AVAIL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_EVCHARGING_AVAIL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_BIKERACK_AVAIL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_LOCKER_AVAIL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_TRAVEL_MEANS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_TRAVEL_TIME</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_TEMP</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>WEATHER_CODE</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_EVENTS_ONSITE</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_EVENTS_VIRTUAL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_EVENTS_OFFISTE</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_EVENTS_PERSONAL</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_NUMBER_OF_FRIENDS</NAME>
+      </COL_LIST_ITEM>
+      <COL_LIST_ITEM>
+         <NAME>UBS_ACCEPTED</NAME>
+      </COL_LIST_ITEM>
+   </COL_LIST>
+   <SUBQUERY>SELECT  
+   ubs_id
+ , ubs_up_id
+, to_number(to_char(ubs_date,'D')-1) as day_of_week
+, ubs_cl_id
+, ubs_cw_id
+, ubs_parking_avail
+, ubs_evcharging_avail
+, ubs_bikerack_avail
+, ubs_locker_avail
+, ubs_travel_means
+, ubs_travel_time
+, ubs_temp
+, case ubs_weather when 'Sunny' then 3
+     when 'Clouds' then 2
+     when 'Snow' then 1
+     when 'Rain' then 0
+     else 0 end as weather_code
+, ubs_events_onsite
+, ubs_events_virtual
+, UBS_EVENTS_OFFISTE
+, ubs_events_personal
+, ubs_number_of_friends
+,  ubs_accepted 
+FROM app_core.user_booking_suggestions where ubs_date &#60;trunc(current_date)</SUBQUERY>
+</VIEW>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>
