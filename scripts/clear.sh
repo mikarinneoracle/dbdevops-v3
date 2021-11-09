@@ -1,3 +1,4 @@
+cd ../dbdevops
 git rm -f *.xml
 git rm -rf index
 git rm -rf package_spec
@@ -10,3 +11,4 @@ git rm -rf ref_constraint
 git rm -rf table
 git rm -rf view
 git status
+cd ../scripts
