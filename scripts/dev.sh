@@ -1,8 +1,8 @@
 export $(grep -v '^#' settings.env | xargs -d '\n')
  
-read -s -p "Task ID: " task_id
+read -p "Task ID: " task_id
 
-read -p "Dev db schema/user: " dev_db_pwd
+read -s -p "Dev db schema/user: " dev_db_pwd
 
 cd ../terraform
 
