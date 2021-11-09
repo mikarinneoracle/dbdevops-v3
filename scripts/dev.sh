@@ -35,6 +35,7 @@ cd ../dbdevops
 
 wget $url -O wallet-$task_id
 base64 --decode wallet-$task_id > wallet-$task_id.zip
+rm -f wallet-$task_id
 
 git checkout -b $task_id-task
 git add wallet-$task_id.zip
