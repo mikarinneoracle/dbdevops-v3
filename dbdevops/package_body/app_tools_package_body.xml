@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="afb3b11eea2418f663c76a981d53aa15276a39da" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOraclePackageBody objectName="APP_TOOLS" objectType="PACKAGE_BODY" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "APP_CORE"."APP_TOOLS" 
+as 
+ 
+procedure ins_tempie 
+(p_clob in clob 
+,p_msg in varchar2) 
+is 
+PRAGMA AUTONOMOUS_TRANSACTION; 
+ 
+begin 
+ 
+insert into tempie (my_clob, my_msg) 
+values (p_clob, p_msg); 
+ 
+commit; 
+ 
+end ins_tempie; 
+ 
+ 
+procedure gen_user_calendars_events 
+(p_up_id in number) is 
+begin 
+ 
+  
+ 
+for r in (select up_id from user_profiles where up_id = p_up_id or p_up_id is null) 
+loop 
+ 
+insert into user_calendar ( UC_DATE, UC_UP_ID, UC_EVENTS_VIRTUAL, UC_EVENTS_ONSITE,	UC_EVENTS_OFFISTE,	UC_EVENTS_PERSONAL) 
+select * from ( 
+    SELECT TRUNC (to_Date('01.01.2022','dd.mm.yyyy') - ROWNUM) as dt 
+    , r.up_id as up_id 
+    ,  case when to_char(TRUNC (to_Date('01.01.2022','dd.mm.yyyy') - ROWNUM),'DY') not in ('SAT','SUN') then floor(DBMS_RANDOM.VALUE(0,5)) else 0 end as UC_EVENTS_VIRTUAL 
+    ,  case when to_char(TRUNC (to_Date('01.01.2022','dd.mm.yyyy') - ROWNUM),'DY') not in ('SAT','SUN') then floor(DBMS_RANDOM.VALUE(0,5)) else 0 end as  UC_EVENTS_ONSITE 
+    ,  case when to_char(TRUNC (to_Date('01.01.2022','dd.mm.yyyy') - ROWNUM),'DY') not in ('SAT','SUN') then floor(DBMS_RANDOM.VALUE(0,5)) else 0 end as  UC_EVENTS_OFFISTE 
+    ,  floor(DBMS_RANDOM.VALUE(0,3)) as UC_EVENTS_PERSONAL 
+     FROM DUAL CONNECT BY ROWNUM < 366 
+   ) 
+  where not exists (select 1 from user_calendar where uc_date = dt and uc_up_id = r.up_id) 
+  order by dt desc; 
+ 
+ end loop; 
+ 
+  
+ 
+end gen_user_calendars_events; 
+
+
+procedure init
+is
+begin
+
+-- gen company_locations
+
+-- gen workspaces
+
+
+-- gen users
+
+-- gen user preferences
+
+
+-- gen user calendar
+for r in (select up_id from user_profiles)
+loop
+app_tools.gen_user_calendars_events 
+(p_up_id => r.up_id);
+end loop;
+
+
+
+-- gen locaiton weather
+for r in (select cl_id from company_locations)
+loop
+  ext_api.get_weather_forecast (p_cl_id =>r.cl_id);
+end loop;
+
+end;
+ 
+
+ procedure clean_up
+ is
+ begin
+
+  delete from user_bookings;
+  delete from user_booking_travel;
+  delete from user_booking_suggestions;
+  delete from user_calendar;
+  delete from company_loc_status;
+  delete from company_wp_status;
+
+
+ end;
+ 
+
+ procedure add_random_travel_delay
+ is
+ begin
+  
+  update user_booking_travel
+set ubt_travel_delay = ceil( mod(dbms_random.random,2)*ubt_travel_time*( round(dbms_random.value(0,50))/100))
+where ubt_ub_id is  null
+and ubt_travel_by in ('car','motorcycle' );
+
+update user_booking_travel
+set ubt_travel_delay = ceil( mod(dbms_random.random,2)*ubt_travel_time*( round(dbms_random.value(0,20))/100))
+where ubt_ub_id is  null
+and ubt_travel_by in ( 'bus');
+
+
+update user_booking_travel
+set UBT_TRAVEL_TIME =  UBT_TRAVEL_TIME + ubt_travel_delay 
+where ubt_ub_id is  null;
+ end;
+
+
+
+procedure sim_reserve_history
+is
+
+
+l_reserve number;
+
+begin
+for r in (
+  select * from user_booking_suggestions
+   where ubs_accept_status = 'S'
+   )loop
+
+    -- reserve all with office meetings
+    -- if meeeting get fastest transport
+     if r.UBS_EVENTS_ONSITE >0 then
+        for s in (select * from user_booking_travel join user_pref_travel on ubt_upt_id = upt_id where ubt_ubs_id = r.ubs_id order by UBT_TRAVEL_TIME asc fetch first row only )
+          loop
+          l_reserve := book_api.reserve_booking
+          (p_ubs_id => r.ubs_id,
+           p_travel_by => lower(s.UBT_TRAVEL_BY));
+          end loop;
+    elsif r.UBS_WEATHER in ('Sunny') then
+      for s in (select * from user_booking_travel join user_pref_travel on ubt_upt_id = upt_id where ubt_ubs_id = r.ubs_id order by UPT_IS_PREFERED desc fetch first row only )
+          loop
+          l_reserve := book_api.reserve_booking
+          (p_ubs_id => r.ubs_id,
+           p_travel_by => lower(s.UBT_TRAVEL_BY));
+          end loop;
+    elsif r.UBS_NUMBER_OF_FRIENDS > 0 then
+      for s in (select * from user_booking_travel join user_pref_travel on ubt_upt_id = upt_id where ubt_ubs_id = r.ubs_id order by UPT_IS_PREFERED desc fetch first row only )
+          loop
+          l_reserve := book_api.reserve_booking
+          (p_ubs_id => r.ubs_id,
+           p_travel_by => lower(s.UBT_TRAVEL_BY));
+          end loop;       
+   elsif r.UBS_WEATHER in ('Rain','Snow') then
+      for s in (select * from user_booking_travel join user_pref_travel on ubt_upt_id = upt_id where ubt_ubs_id = r.ubs_id and UBT_TRAVEL_BY not in ('bicycle','motorcycle')  order by UPT_IS_PREFERED desc fetch first row only )
+          loop
+          l_reserve := book_api.reserve_booking
+          (p_ubs_id => r.ubs_id,
+           p_travel_by => lower(s.UBT_TRAVEL_BY));
+          end loop;
+    elsif r.UBS_PARKING_AVAIL = 0 then
+      for s in (select * from user_booking_travel join user_pref_travel on ubt_upt_id = upt_id where ubt_ubs_id = r.ubs_id and UBT_TRAVEL_BY not in ('car','motorcycle')  order by UPT_IS_PREFERED desc fetch first row only )
+          loop
+          l_reserve := book_api.reserve_booking
+          (p_ubs_id => r.ubs_id,
+           p_travel_by => lower(s.UBT_TRAVEL_BY));
+          end loop;
+    
+end if;
+ 
+
+
+ 
+end loop;
+
+end;
+
+procedure confirm_reservations
+is
+
+l_conf number;
+begin
+
+for r in (
+select * from user_booking_suggestions where ubs_accept_status = 'R'
+)loop
+   l_conf := book_api.confirm_booking
+          (p_ubs_id => r.ubs_id);
+end loop;
+
+end;
+
+procedure reassign_wp
+is
+begin
+
+for r in (select * from user_booking_suggestions where ubs_accept_status !='C'  )
+loop
+update user_booking_suggestions
+ set ubs_cw_id =  book_api.get_wp
+                (p_up_id=> r.ubs_up_id
+                ,p_date => r.ubs_date
+                ,p_cl_id => r.ubs_cl_id)
+ where ubs_id = r.ubs_id;
+
+end loop;
+end;
+
+
+end app_tools;
+]]></n0:source>
+		</n0:createOraclePackageBody>
+	</changeSet>
+</databaseChangeLog>
