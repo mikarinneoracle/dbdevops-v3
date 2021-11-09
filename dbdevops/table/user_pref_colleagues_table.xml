@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="8ea1ba826ab20e0cfaf513aa8a06697ae9c73bfa" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="b6d0f07721d42803e010a9b6ae803c8ddb1b7904" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="USER_PREF_COLLEAGUES" objectType="TABLE" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -20,7 +20,7 @@
                <SCHEMA>APP_CORE</SCHEMA>
                <GENERATION>DEFAULT</GENERATION>
                <ON_NULL></ON_NULL>
-               <START_WITH>29</START_WITH>
+               <START_WITH>49</START_WITH>
                <INCREMENT>1</INCREMENT>
                <MINVALUE>1</MINVALUE>
                <MAXVALUE>9999999999999999999999999999</MAXVALUE>
