@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="c9d43b5b1c704f5ac77878e674b3174160eeb3e9" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOraclePackageSpec objectName="EXT_API" objectType="PACKAGE_SPEC" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE PACKAGE "APP_CORE"."EXT_API" 
+as 
+
+g_api_key varchar2(255) := '650f3ad655937e86e914f58eed2e56d5'; 
+g_travel_api_key varchar2(255) := '4EOKpJT1miUlfgwQZ1pd9A9QCHqhgno9';
+ 
+procedure get_weather_now (p_cl_id in number 
+                          ,p_city in varchar2 
+                          ,p_country in varchar2 
+                          ,p_temp out varchar2
+                          ,p_weather out varchar2
+                          ) ;
+
+procedure get_weather_forecast (p_cl_id in number                    
+                          ) ;
+
+
+/* begin ext_api.get_locations_weather; end;*/
+ procedure get_locations_weather;
+
+procedure get_travel_data
+   (p_from_lat in varchar2
+   ,p_from_lon in varchar2
+   ,p_to_lat in varchar2
+   ,p_to_lon in varchar2
+   ,p_travel_by in varchar2
+   --,p_arrive_at in varchar2
+   ,p_travel_time out number
+   ,p_travel_delay out number
+   ,p_travel_length out number
+   ,p_travel_time_hist out number
+   );
+
+ 
+end ext_api; 
+ 
+ 
+]]></n0:source>
+		</n0:createOraclePackageSpec>
+	</changeSet>
+</databaseChangeLog>
