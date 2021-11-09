@@ -1,5 +1,6 @@
 variable "tenancy_ocid" {
-  default = "ocid1.tenancy.oc1..aaaaaaaat4zyuyyxbdcd4tbin3sx3vz3ac5pddqt2fzfvznmfgjarizah4ya" 
+  type        = string
+  description = "Tenancy ocid"
 }
 
 variable "region" {
@@ -7,7 +8,8 @@ variable "region" {
 }
 
 variable "compartment_ocid" {
-  default = "ocid1.compartment.oc1..aaaaaaaae2fifpl73zspbqpiefzdgyj3zz6hn34ja54uggzwva5vlbftxkfq"
+  type        = string
+  description = "Compartment ocid"
 }
 
 variable "num_nodes" {
@@ -15,7 +17,7 @@ variable "num_nodes" {
 }
 
 variable "database_name" {
-  default = "dev"
+  default = "Dev"
 }
 
 variable "use_always_free" {
