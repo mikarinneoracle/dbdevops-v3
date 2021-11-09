@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="4616443a06e4091fb94eb5676892379298a3e8c3" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOraclePackageSpec objectName="APP_TOOLS" objectType="PACKAGE_SPEC" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE PACKAGE "APP_CORE"."APP_TOOLS" 
+as 
+procedure ins_tempie 
+(p_clob in clob 
+,p_msg in varchar2); 
+ 
+ 
+procedure gen_user_calendars_events 
+(p_up_id in number); 
+
+procedure init;
+ 
+ 
+end app_tools; 
+ 
+]]></n0:source>
+		</n0:createOraclePackageSpec>
+	</changeSet>
+</databaseChangeLog>
