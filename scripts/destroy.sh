@@ -11,6 +11,7 @@ export tf_state_file="${os_bucket_tf}task-${task_id}.state"
 echo $tf_state_file
 cp main.tf copy_main
 sed -i "s|OS_TF|${tf_state_file}|g" main.tf
+cat main.tf
 
 terraform init > tf-init.out
 
