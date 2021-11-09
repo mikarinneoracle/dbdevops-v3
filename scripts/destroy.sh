@@ -1,3 +1,5 @@
+read -p "Task ID: " task_id
+
 cd ../terraform
 
 export TF_VAR_tenancy_ocid=$tenancy_ocid
