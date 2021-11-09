@@ -32,3 +32,5 @@ if [ -n "${application_id}" ]; then
     rm -f upd_apex.sql
     rm -f privileges.sql
 fi
+
+git checkout master
