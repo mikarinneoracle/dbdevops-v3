@@ -6,8 +6,11 @@ read -s -p "Dev db password: " dev_db_pwd
 
 cd ../terraform
 
+export TF_VAR_tenancy_ocid=$tenancy_ocid
+export TF_VAR_compartment_ocid=$compartment_ocid
 export TF_VAR_dev_db_pwd=$dev_db_pwd
 export TF_VAR_task_id=$task_id
+
 export tf_state_file="${os_bucket_tf}task-${task_id}.state"
 echo $tf_state_file
 sed -i "s|OS_TF|${tf_state_file}|g" main.tf
