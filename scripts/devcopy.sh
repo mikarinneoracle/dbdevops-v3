@@ -18,7 +18,7 @@ git merge master
 printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog controller.xml\nlb update -changelog data.xml\ntables\nexit" > upd.sql
 
 cat upd.sql
-sql /nolog @./c
+sql /nolog @./upd.sql
 rm -f upd.sql
 
 if [ -n "${application_id}" ]; then
