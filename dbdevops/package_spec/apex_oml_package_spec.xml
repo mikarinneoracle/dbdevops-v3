@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="719812dad3549d35c09de803c542104d6289d5f6" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOraclePackageSpec objectName="APEX_OML" objectType="PACKAGE_SPEC" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE PACKAGE "APP_CORE"."APEX_OML" as
+
+ 
+g_server varchar2(250) := 'https://cloud.oracle.com/db/adb';                                       -- 'change to your cloud host from lab 2'
+g_tennant varchar2(250) := 'ocid1.autonomousdatabase.oc1.eu-frankfurt-1.antheljtlktpssiapqhkh7jbwhamvfwyimwgtakeurujpp65onhawvkfjzrq'; -- 'change to your tennant from lab 2'
+g_database varchar2(250) := 'prod';                                                                      -- 'change to your database from lab 2' 
+g_oml_user varchar2(250) := 'MLUSER1';                                                                        -- 'change to your machine learning username from lab 2' 
+g_oml_pwd varchar2(250) := 'Ninja250R12#';                                                               -- 'change to your machine learning user password from lab 2'
+g_oml_model_uri varchar2(250) := 'ubs_predictNN';                                                      -- 'change to your oml model uri from lab 2'  
+ 
+--OML WS endpoints
+g_auth_url varchar2(2000) := g_server||'/omlusers/tenants/'||g_tennant||'/databases/'||g_database||'/api/oauth2/v1/token';
+g_models_url varchar2(2000) := g_server||'/omlmod/v1/models';
+g_score_url varchar2(2000) := g_server||'/omlmod/v1/deployment/'||g_oml_model_uri||'/score';
+ 
+ 
+function get_oml_token
+return VARCHAR2;
+
+ 
+ 
+procedure list_oml_models;
+
+ 
+
+end APEX_OML;
+]]></n0:source>
+		</n0:createOraclePackageSpec>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="bb1660456b9e476da201f4a633bda64eb405d708" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOracleRefConstraint objectName="USER_PREF_WORKP_UPW_UPL_ID_FK" objectType="REF_CONSTRAINT" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  ALTER TABLE "APP_CORE"."USER_PREF_WORKPLACES" ADD CONSTRAINT "USER_PREF_WORKP_UPW_UPL_ID_FK" FOREIGN KEY ("UPWP_UPL_ID")
+	  REFERENCES "APP_CORE"."USER_PREF_LOCATIONS" ("UPL_ID") ON DELETE CASCADE ENABLE]]></n0:source>
+		</n0:createOracleRefConstraint>
+	</changeSet>
+</databaseChangeLog>
