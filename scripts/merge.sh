@@ -1,5 +1,11 @@
 export $(grep -v '^#' settings.env | xargs -d '\n')
 
+read -p "This will copy changes from repo to prod, type Y to continue: " answer
+if [ "${answer}" != "Y" ]; then
+    echo "OK, quitting."
+    exit
+fi
+
 read -p "Prod db schema/user: " schema
  
 read -s -p "Prod db password: " pwd

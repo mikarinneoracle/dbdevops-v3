@@ -16,7 +16,12 @@ cd ../dbdevops
 echo "*** COPYING FROM REPO TO Dev-${task_id} WITH A TASK ID ${task_id} ***"
 
 git checkout $task_id-task
-git merge master
+
+read -p "Merge possible changes from master first (Y to merge): " answer
+if [ "${answer}" != "Y" ]; then
+    echo "Merging master ..."
+    git merge master
+fi
 
 printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog controller.xml\nlb update -changelog data.xml\ntables\nexit" > upd.sql
 
