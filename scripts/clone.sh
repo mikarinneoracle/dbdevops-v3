@@ -28,8 +28,6 @@ cd ../dbdevops
 export timestamp=$(($(date +%s%N)/1000000))
 wget $prod_db_wallet_preauth -O wallet.zip
 
-git config --global user.email $git_user 
-git config --global user.name $git_email
 git checkout -b $timestamp-copy-prod
 
 echo "*** CREATES $timestamp-copy-prod BRANCH TO REPO ***"
