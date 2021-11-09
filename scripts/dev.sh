@@ -38,7 +38,9 @@ tail -2 tf.out
 export url="$(grep "autonomous_database_wallet_preauth =" tf.out | grep -o '".*"' | tr -d '"')"
 mv copy_main main.tf
 
-mkdir ../dbdevops #assuming we have this already, but just make sure
+if [ ! -d "../dbdevops" ]; then
+    mkdir ../dbdevops
+fi
 cd ../dbdevops
 
 git checkout -b $task_id-task

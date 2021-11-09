@@ -10,7 +10,10 @@ printf "\n"
 
 read -p "Apex app id (optional): " application_id
 
-mkdir ../dbdevops #assuming we have this already, but just make sure
+if [ ! -d "../dbdevops" ]; then
+    mkdir ../dbdevops
+fi
+
 cd ../dbdevops
 
 echo "*** COPYING FROM REPO TO Dev-${task_id} WITH A TASK ID ${task_id} ***"

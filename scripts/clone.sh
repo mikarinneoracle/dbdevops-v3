@@ -19,7 +19,9 @@ else
     fi    
 fi
 
-mkdir ../dbdevops
+if [ ! -d "../dbdevops" ]; then
+    mkdir ../dbdevops
+fi
 cd ../dbdevops
 
 export timestamp=$(($(date +%s%N)/1000000))
