@@ -21,7 +21,8 @@ else
         export tablesconfig="lb data"
     fi    
 fi
- 
+
+mkdir ../dbdevops
 cd ../dbdevops
 
 export timestamp=$(($(date +%s%N)/1000000))
