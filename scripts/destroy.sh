@@ -19,6 +19,7 @@ terraform init > tf-init.out
 
 echo "*** DESTROY Dev-${task_id} WITH A TASK ID ${task_id} ***"
 terraform destroy -auto-approve > tf_destroy.out
+tail -2 tf_destroy.out
 
 mv copy_main main.tf
 
