@@ -1,26 +1,26 @@
 export $(grep -v '^#' settings.env | xargs -d '\n')
 
-cd dbdevops
+read -p "Prod db schema/user: " schema
+ 
+read -s -p "Prod db password: " pwd
+ 
+printf "\n"
+ 
+read -p "Apex app id (optional): " application_id
+
+cd ../dbdevops
 
 wget $prod_db_wallet_preauth -O wallet.zip
 
 echo "*** MERGE REPO MASTER TO PROD ***"
-sed -i "s/SCHEMA/${prod_db_schema}/g" upd.sql
-sed -i "s/PWD/${prod_pwd_pwd}/g" upd.sql
-sed -i "s/CONN/prod_high/g" upd.sql
-sed -i "s/WALLET/wallet.zip/g" upd.sql
-cat upd.sql
+
+printf "set cloudconfig ./wallet.zip\nconn ${schema}/${pwd}@prod_high\nlb update -changelog controller.xml\nlb update -changelog data.xml\ntables\nexit" > upd.sql
+
 sql /nolog @./upd.sql
+rm -f upd.sql
 
-if [ -n "${application_id}" ] &&  [ "${application_id}" != "-" ]; then
-    sed -i "s/SCHEMA/${prod_db_schema}/g" upd_apex.sql
-    sed -i "s/PWD/${prod_pwd_pwd}/g" upd_apex.sql
-    sed -i "s/CONN/prod_high/g" upd_apex.sql
-    sed -i "s/WALLET/wallet.zip/g" upd_apex.sql
-    sed -i "s/APP_ID/${application_id}/g" upd_apex.sql
-    cat upd_apex.sql
+if [ -n "${application_id}" ]; then
+    printf "set cloudconfig ./wallet.zip\nconn ${schema}/${pwd}@prod_high\n@privileges.sql\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
     sql /nolog @./upd_apex.sql
+    rm -f upd_apex.sql
 fi
-
-git restore upd.sql
-git restore upd_apex.sql
