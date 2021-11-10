@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="7256d06541441feae42d96e0abbbb48a0b2b26b1" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="19651ae32bc56931edd7bec6813388e65127c5b0" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createOracleProcedure objectName="OEHR_ADD_JOB_HISTORY" objectType="PROCEDURE" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   CREATE OR REPLACE EDITIONABLE PROCEDURE "APP_CORE"."OEHR_ADD_JOB_HISTORY" 
@@ -18,8 +18,7 @@
 is
 begin
   insert into oehr_job_history (employee_id, start_date, end_date, job_id, department_id)
-    values(p_emp_id, p_start_date, p_end_date, p_job_id, p_department_id);
-end oehr_add_job_history;]]></n0:source>
+    values(p_emp_id, p_start_date, p_end_date, p_job_id, p_department_id);end oehr_add_job_history;]]></n0:source>
 		</n0:createOracleProcedure>
 	</changeSet>
 </databaseChangeLog>
