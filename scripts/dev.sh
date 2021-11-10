@@ -12,6 +12,15 @@ read -s -p "Dev${task_id} db password (to be used): " pwd
 
 printf "\n"
 
+read -s -p "Please type Dev${task_id} db password again: " pwd2
+
+printf "\n"
+
+if [ ${pwd} != ${pwd2} ]; then
+    echo "Passwords didn't match, exiting.\n"
+    exit
+fi
+
 cd ../terraform
 
 export TF_VAR_tenancy_ocid=$tenancy_ocid
