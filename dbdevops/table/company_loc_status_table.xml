@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="4ee7a1c947e0bce409e4ae0b4d51df368d7ee690" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="9203d45026af892846358b041c18adb1be667b73" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="COMPANY_LOC_STATUS" objectType="TABLE" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -20,7 +20,7 @@
                <SCHEMA>APP_CORE</SCHEMA>
                <GENERATION>DEFAULT</GENERATION>
                <ON_NULL></ON_NULL>
-               <START_WITH>7767</START_WITH>
+               <START_WITH>7787</START_WITH>
                <INCREMENT>1</INCREMENT>
                <MINVALUE>1</MINVALUE>
                <MAXVALUE>9999999999999999999999999999</MAXVALUE>

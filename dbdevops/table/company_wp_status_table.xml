@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="a4d17c90f6f8ca0b7db2171ac10e189fc9a8458b" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="28f6807bcb481e5253a78ba57571f73c49e1bfc1" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="COMPANY_WP_STATUS" objectType="TABLE" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -21,7 +21,7 @@
                <SCHEMA>APP_CORE</SCHEMA>
                <GENERATION>DEFAULT</GENERATION>
                <ON_NULL></ON_NULL>
-               <START_WITH>2749</START_WITH>
+               <START_WITH>2769</START_WITH>
                <INCREMENT>1</INCREMENT>
                <MINVALUE>1</MINVALUE>
                <MAXVALUE>9999999999999999999999999999</MAXVALUE>
