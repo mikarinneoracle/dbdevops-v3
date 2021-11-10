@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="9899e5f20e29fea48100f6dfa8ae7bef32506913" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="e52d5019f04e39ec4792df1bd89e5f0b7126aaa9" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="USER_BOOKINGS" objectType="TABLE" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -20,7 +20,7 @@
                <SCHEMA>APP_CORE</SCHEMA>
                <GENERATION>DEFAULT</GENERATION>
                <ON_NULL></ON_NULL>
-               <START_WITH>2839</START_WITH>
+               <START_WITH>2859</START_WITH>
                <INCREMENT>1</INCREMENT>
                <MINVALUE>1</MINVALUE>
                <MAXVALUE>9999999999999999999999999999</MAXVALUE>
