@@ -17,7 +17,7 @@ read -s -p "Please type Dev${task_id} db password again: " pwd2
 printf "\n"
 
 if [ ${pwd} != ${pwd2} ]; then
-    echo "Passwords didn't match, exiting.\n"
+    echo "Passwords didn't match, exiting."
     exit
 fi
 
