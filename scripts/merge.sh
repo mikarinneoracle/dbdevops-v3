@@ -35,3 +35,5 @@ if [ -n "${application_id}" ]; then
     sql /nolog @./upd_apex.sql
     rm -f upd_apex.sql
 fi
+
+rm -f wallet.zip
