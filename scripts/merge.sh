@@ -23,7 +23,7 @@ cd ../dbdevops
 
 wget $prod_db_wallet_preauth -O wallet.zip
 
-echo "*** MERGE REPO MASTER TO ${name} ***"
+echo "*** COPY REPO MASTER TO ${name} ***"
 
 printf "set cloudconfig ./wallet.zip\nconn ${schema}/${pwd}@${name}_high\nlb update -changelog controller.xml\nlb update -changelog data.xml\ntables\nexit" > upd.sql
 
