@@ -8,7 +8,7 @@ if [ "${answer}" != "Y" ]; then
     exit
 fi
 
-read -s -p "Dev db password: " pwd
+read -s -p "DevDev${task_id} db password: " pwd
 
 printf "\n"
 

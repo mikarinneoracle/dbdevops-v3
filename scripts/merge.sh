@@ -6,9 +6,11 @@ if [ "${answer}" != "Y" ]; then
     exit
 fi
 
-read -p "Prod db schema/user: " schema
+export name=$prod_instance_name
+
+read -p "${name} db schema/user: " schema
  
-read -s -p "Prod db password: " pwd
+read -s -p "${name} db password: " pwd
  
 printf "\n"
  
@@ -21,7 +23,7 @@ cd ../dbdevops
 
 wget $prod_db_wallet_preauth -O wallet.zip
 
-echo "*** MERGE REPO MASTER TO PROD ***"
+echo "*** MERGE REPO MASTER TO ${name} ***"
 
 printf "set cloudconfig ./wallet.zip\nconn ${schema}/${pwd}@prod_high\nlb update -changelog controller.xml\nlb update -changelog data.xml\ntables\nexit" > upd.sql
 
