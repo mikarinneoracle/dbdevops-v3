@@ -1,0 +1,80 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="opc (generated)" id="1636540007617-1">
+        <insert tableName="USER_PROFILES">
+            <column name="UP_ID" valueNumeric="23"/>
+            <column name="UP_EMP_ID" valueNumeric="4"/>
+            <column name="UP_USERNAME" value="patrisia.pascan@oracle.com"/>
+            <column name="UP_PASSWORD" value="test"/>
+            <column name="UP_SECRET" value="Patrisia"/>
+            <column name="UP_FIRST_NAME" value="Patrisia"/>
+            <column name="UP_LAST_NAME" value="Pascan"/>
+            <column name="UP_BIRTHDATE" valueDate="1980-10-23T00:00:00"/>
+            <column name="UP_GENDER" value="F"/>
+            <column name="UP_STATUS" value="A"/>
+            <column name="UP_OFFICE_DAYS" valueNumeric="4"/>
+            <column name="UP_GREEN_POINTS" valueNumeric="148"/>
+            <column name="UP_IMAGE_URL" value="https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/frhtfseseskw/b/user_image/o/patrisia.jpg"/>
+        </insert>
+        <insert tableName="USER_PROFILES">
+            <column name="UP_ID" valueNumeric="24"/>
+            <column name="UP_EMP_ID" valueNumeric="6"/>
+            <column name="UP_USERNAME" value="kurt.lefevre@oracle.com"/>
+            <column name="UP_PASSWORD"/>
+            <column name="UP_SECRET" value="Kurt"/>
+            <column name="UP_FIRST_NAME" value="Kurt"/>
+            <column name="UP_LAST_NAME" value="Lefevre"/>
+            <column name="UP_BIRTHDATE" valueDate="1970-10-22T00:00:00"/>
+            <column name="UP_GENDER" value="M"/>
+            <column name="UP_STATUS" value="A"/>
+            <column name="UP_OFFICE_DAYS" valueNumeric="2"/>
+            <column name="UP_GREEN_POINTS" valueNumeric="114"/>
+            <column name="UP_IMAGE_URL" value="https://ca.slack-edge.com/E655JKQRX-WBPN4FZD3-9d3a49cc2694-512"/>
+        </insert>
+        <insert tableName="USER_PROFILES">
+            <column name="UP_ID" valueNumeric="21"/>
+            <column name="UP_EMP_ID" valueNumeric="2"/>
+            <column name="UP_USERNAME" value="daniel.ivanescu@oracle.com"/>
+            <column name="UP_PASSWORD"/>
+            <column name="UP_SECRET" value="Daniel"/>
+            <column name="UP_FIRST_NAME" value="Daniel"/>
+            <column name="UP_LAST_NAME" value="Ivanescu"/>
+            <column name="UP_BIRTHDATE" valueDate="1985-11-23T00:00:00"/>
+            <column name="UP_GENDER" value="M"/>
+            <column name="UP_STATUS" value="A"/>
+            <column name="UP_OFFICE_DAYS" valueNumeric="2"/>
+            <column name="UP_GREEN_POINTS" valueNumeric="73"/>
+            <column name="UP_IMAGE_URL" value="https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/frhtfseseskw/b/user_image/o/daniel.jpg"/>
+        </insert>
+        <insert tableName="USER_PROFILES">
+            <column name="UP_ID" valueNumeric="22"/>
+            <column name="UP_EMP_ID" valueNumeric="3"/>
+            <column name="UP_USERNAME" value="marc.gueury@oracle.com"/>
+            <column name="UP_PASSWORD"/>
+            <column name="UP_SECRET" value="Marc"/>
+            <column name="UP_FIRST_NAME" value="Marc"/>
+            <column name="UP_LAST_NAME" value="Gueury"/>
+            <column name="UP_BIRTHDATE" valueDate="2000-10-14T00:00:00"/>
+            <column name="UP_GENDER" value="M"/>
+            <column name="UP_STATUS" value="A"/>
+            <column name="UP_OFFICE_DAYS" valueNumeric="3"/>
+            <column name="UP_GREEN_POINTS" valueNumeric="216"/>
+            <column name="UP_IMAGE_URL" value="https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/frhtfseseskw/b/user_image/o/marc.jpg"/>
+        </insert>
+        <insert tableName="USER_PROFILES">
+            <column name="UP_ID" valueNumeric="1"/>
+            <column name="UP_EMP_ID" valueNumeric="1"/>
+            <column name="UP_USERNAME" value="mika.rinne@oracle.com"/>
+            <column name="UP_PASSWORD" value="test"/>
+            <column name="UP_SECRET" value="Mika"/>
+            <column name="UP_FIRST_NAME" value="Mika"/>
+            <column name="UP_LAST_NAME" value="Rinne"/>
+            <column name="UP_BIRTHDATE" valueDate="1990-09-01T00:00:00"/>
+            <column name="UP_GENDER" value="M"/>
+            <column name="UP_STATUS" value="A"/>
+            <column name="UP_OFFICE_DAYS" valueNumeric="3"/>
+            <column name="UP_GREEN_POINTS" valueNumeric="179"/>
+            <column name="UP_IMAGE_URL" value="https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/frhtfseseskw/b/user_image/o/mika.jpg"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
