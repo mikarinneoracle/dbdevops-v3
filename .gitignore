@@ -4,4 +4,6 @@ terraform/wallet*
 terraform/*.out
 terraform/.terraform*
 dbdevops/*.sql
+dbdevops/Wallet*
+dbdevops/wallet*
 scripts/settings.env
