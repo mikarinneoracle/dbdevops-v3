@@ -2,13 +2,13 @@ export $(grep -v '^#' settings.env | xargs -d '\n')
 
 read -p "Task ID: " task_id
 
-read -p "This will delete any existing resources for task ID ${task_id}, type Y to continue: " answer
+read -p "This will delete any existing resources for task ID ${task_id} and create a new one, type Y to continue: " answer
 if [ "${answer}" != "Y" ]; then
     echo "OK, quitting."
     exit
 fi
 
-read -s -p "DevDev${task_id} db password: " pwd
+read -s -p "Dev${task_id} db password (to be used): " pwd
 
 printf "\n"
 
