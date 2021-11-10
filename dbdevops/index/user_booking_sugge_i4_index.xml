@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="c455064279a385b14ec0ba6e455a21eea5235f0f" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="af7a9501bfd3eb344a2f6c16e482653a6708316e" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="USER_BOOKING_SUGGE_I4" objectType="INDEX" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   <INDEX xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -25,18 +25,6 @@
          <PCTFREE>10</PCTFREE>
          <INITRANS>20</INITRANS>
          <MAXTRANS>255</MAXTRANS>
-         <STORAGE>
-            <INITIAL>65536</INITIAL>
-            <NEXT>1048576</NEXT>
-            <MINEXTENTS>1</MINEXTENTS>
-            <MAXEXTENTS>2147483645</MAXEXTENTS>
-            <PCTINCREASE>0</PCTINCREASE>
-            <FREELISTS>1</FREELISTS>
-            <FREELIST_GROUPS>1</FREELIST_GROUPS>
-            <BUFFER_POOL>DEFAULT</BUFFER_POOL>
-            <FLASH_CACHE>DEFAULT</FLASH_CACHE>
-            <CELL_FLASH_CACHE>DEFAULT</CELL_FLASH_CACHE>
-         </STORAGE>
          <TABLESPACE>DATA</TABLESPACE>
          <LOGGING>Y</LOGGING>
       </INDEX_ATTRIBUTES>

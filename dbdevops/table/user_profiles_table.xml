@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="f6c08e44db5d8d7ee4f38d5cd0dd4d93d020d7b5" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="6e1753ea42904d363f77045c772d8c96ee829767" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="USER_PROFILES" objectType="TABLE" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -21,7 +21,7 @@
                <SCHEMA>APP_CORE</SCHEMA>
                <GENERATION>DEFAULT</GENERATION>
                <ON_NULL></ON_NULL>
-               <START_WITH>25</START_WITH>
+               <START_WITH>45</START_WITH>
                <INCREMENT>1</INCREMENT>
                <MINVALUE>1</MINVALUE>
                <MAXVALUE>9999999999999999999999999999</MAXVALUE>

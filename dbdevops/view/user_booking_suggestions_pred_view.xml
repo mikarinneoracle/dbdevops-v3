@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="62ddebb50a693595f57403d0db14a4b2920e949c" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="986913b49c24e06bf40ec052d9bf0953cef633de" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="USER_BOOKING_SUGGESTIONS_PRED" objectType="VIEW" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   <VIEW xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -93,8 +93,7 @@
       </COL_LIST_ITEM>
    </COL_LIST>
    <SUBQUERY>select ubs."UBS_ID",ubs."UBS_UP_ID",ubs."UBS_DATE",ubs."UBS_CL_ID",ubs."UBS_CW_ID",ubs."UBS_PARKING_AVAIL",ubs."UBS_EVCHARGING_AVAIL",ubs."UBS_BIKERACK_AVAIL",ubs."UBS_LOCKER_AVAIL",ubs."UBS_TRAVEL_MEANS",ubs."UBS_TRAVEL_TIME",ubs."UBS_WEATHER",ubs."UBS_WEATHER_ICON",ubs."UBS_TEMP",ubs."UBS_EVENTS_VIRTUAL",ubs."UBS_EVENTS_ONSITE",ubs."UBS_EVENTS_OFFISTE",ubs."UBS_EVENTS_PERSONAL",ubs."UBS_INVITE_BY",ubs."UBS_ACCEPT_STATUS",ubs."UBS_NUMBER_OF_FRIENDS",ubs."UBS_AVAIL_WP",ubs."UBS_UBT_ID_SELECTED",ubs."UBS_ACCEPTED", pred.prediction, round(pred_probability*100,2) pred_probability from user_booking_suggestions ubs
-left join mluser1.USER_BOOKING_PREDICTION pred on ubs.ubs_id = pred.ubs_id
-</SUBQUERY>
+left join mluser1.USER_BOOKING_PREDICTION pred on ubs.ubs_id = pred.ubs_id</SUBQUERY>
 </VIEW>]]></n0:source>
 		</n0:createSxmlObject>
 	</changeSet>

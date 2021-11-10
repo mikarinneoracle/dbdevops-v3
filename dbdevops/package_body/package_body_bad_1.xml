@@ -5,19 +5,17 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="0738c8b19980d939c5a7d3e3ef2480c69b7d4625" author="(APP_CORE)-Generated" failOnError="false"    >
+	<changeSet id="e6afb1f8c1ce464d09db412ed23c996d6dbc3217" author="(APP_CORE)-Generated" failOnError="false"    >
 		<n0:createOraclePackageBody objectName="%OBJECT_NAME%" objectType="PACKAGE_BODY" ownerName="APP_CORE"   >
 			<n0:source><![CDATA[
   CREATE OR REPLACE EDITIONABLE PACKAGE BODY "APP_CORE"."BOOK_API" book_api
 as
-
 procedure upd_loc_status
 (p_cl_id in number
 ,p_date in date
 )
 is
 begin
-
 --location status
 MERGE INTO COMPANY_LOC_STATUS d
     USING (select ub_cl_id
@@ -45,14 +43,8 @@ MERGE INTO COMPANY_LOC_STATUS d
   WHEN NOT MATCHED THEN
     INSERT (cls_cl_id, CLS_DATE, CLS_BOOKED_PARKING, CLS_BOOKED_EVCHARGING,CLS_BOOKED_BIKERACK,CLS_BOOKED_LOCKER,CLS_BOOKINGS,CLS_BOOKED_WP)
     VALUES (s.ub_cl_id, s.ub_date, s.booked_parking, s.booked_charging, s.booked_bikerack ,s.booked_locker,s.bookings, s.booked_wp);
-
-
-
 end upd_loc_status;
-
-
 /*****/
-
 function find_booking_suggestion
 (p_secret in varchar2
 ,p_date in date
@@ -60,7 +52,6 @@ function find_booking_suggestion
 is
 l_ubs_id number;
 begin
-
 for r in (select * from user_profiles 
            join user_booking_suggestions on ubs_up_id = up_id
            where ubs_date = p_date
@@ -68,10 +59,8 @@ for r in (select * from user_profiles
            loop
             l_ubs_id := r.ubs_id;
            end loop;
-
 return l_ubs_id;
 end find_booking_suggestion;
-
 function get_wp_book_status
 (p_cw_id in number
 ,p_date in date)
@@ -80,13 +69,11 @@ is
 l_book_status number;
 l_book_count number;
 begin
-
 for r in 
    (select cws_booking_status from  COMPANY_WP_STATUS where cws_cw_id = p_cw_id and cws_date = p_date)
 loop
   l_book_status := r.cws_booking_status;
 end loop;
-
 for r in (
 select count(*) book_count from user_bookings where ub_cw_id = p_cw_id and ub_date = p_date
 )loop
@@ -95,14 +82,9 @@ end loop;
 if l_book_count >1 then l_book_status := 75; -- overbooked
 end if;
 -- skipping reserved
-
 return l_book_status;
-
 end get_wp_book_status;
-
 /***/
-
-
 function get_wp_avail
 (p_cw_id in number
 ,p_date in date
@@ -112,7 +94,6 @@ is
 l_Avail number :=1; --default available
 l_book_count number;
 begin
-
 --check any bookings
 for r in (select * from  COMPANY_WP_STATUS where cws_cw_id = p_cw_id and cws_date = p_date
           )
@@ -126,22 +107,16 @@ elsif r.cws_booking_status in (74,72) and r.CWS_BOOKED_BY != p_book_by -- booked
 else -- otherwise available 
    l_Avail := 1;
  end if;   
-
 end loop;
-
 return l_Avail;
-
 end get_wp_avail;
-
 procedure book_wp
 (p_ub_id in number)
 is
 l_book_count number;
 lr_ub user_bookings%rowtype;
 begin
-
 select * into lr_ub from user_bookings where ub_id = p_ub_id;
-
 --workplace status
 MERGE INTO COMPANY_WP_STATUS d
   using (select UB_CW_ID
@@ -161,7 +136,6 @@ MERGE INTO COMPANY_WP_STATUS d
       insert (CWS_CW_ID, CWS_DATE, CWS_BOOKING_STATUS ,CWS_BOOKED_BY )       
       values (s.UB_CW_ID, trunc(s.UB_DATE),  s.WP_STATUS, s.UB_UP_ID)
        ;
-
 -- for other suggestions on that day
 -- suggest new wp
 for r in (select * from user_booking_suggestions where ubs_date = lr_ub.ub_date and ubs_accept_status !='C' and ubs_cw_id = lr_ub.ub_cw_id)
@@ -172,26 +146,17 @@ update user_booking_suggestions
                 ,p_date => r.ubs_date
                 ,p_cl_id => r.ubs_cl_id)
  where ubs_id = r.ubs_id;
-
 end loop;
-
-
-
 end book_wp;
-
 /****/
-
 --reserve with travel details
-
 function reserve_booking
  (p_ubs_id in number,
   p_travel_by in varchar2
  ) return number
  is
- 
  l_reserved number := 0;
  begin
- 
  for r in (select * from user_booking_travel where ubt_ubs_id = p_ubs_id and UBT_TRAVEL_BY = p_travel_by)
    loop
      update user_booking_suggestions
@@ -202,18 +167,12 @@ function reserve_booking
        where ubs_id = p_ubs_id;
    l_reserved := 1;
    end loop;
-
  return l_reserved;
-
  exception
    when others
      then return 0;  
-
  end reserve_booking;
-
-
  /***/
-
 -- reserve without travel details
  function reserve_booking
  (p_ubs_id in number 
@@ -221,25 +180,18 @@ function reserve_booking
  is
    l_reserved number := 0;
  begin
- 
      update user_booking_suggestions
          set UBS_ACCEPT_STATUS = 'R'
            , UBS_UBT_ID_SELECTED = null
            , UBS_TRAVEL_MEANS    = null
            , UBS_TRAVEL_TIME     = null
        where ubs_id = p_ubs_id;
-
  return l_reserved;
-
  exception
    when others
     then return 0;
-
  end reserve_booking ;
-
-
 /****/
-
  procedure book_calendar
  (p_up_id in number
  ,p_date in date
@@ -248,7 +200,6 @@ function reserve_booking
  )
  is
  begin
-  
   merge into user_calendar d
   using (select p_up_id as p_up_id, p_date as p_date, p_ubs_id as p_ubs_id, p_ub_id as p_ub_id from dual) s
   on (d.uc_up_id =  s.p_up_id and trunc(d.uc_date) = trunc(s.p_date))
@@ -259,12 +210,8 @@ function reserve_booking
    when not matched
      then insert (uc_up_id, uc_date, uc_ubs_id, uc_ub_id)
      values (s.p_up_id, s.p_date, s.p_ubs_id, s.p_ub_id) ; 
-
  end book_calendar;
-
- 
  /*****/
-
 procedure refresh_booking_suggestions
 (p_cl_id in number
 ,p_date in date)
@@ -290,27 +237,16 @@ begin
        where ubs_cl_id       = p_cl_id
        and ubs_date          = p_date
        and UBS_ACCEPT_STATUS != 'C';    -- not confirmed
-
    end loop;
-
 end refresh_booking_suggestions;
-
-
-
-
-
 procedure update_green_points
 (p_up_id in number)
 is
 begin
- 
    update user_profiles
        set up_green_points = (select sum (UB_GREEN_POINTS) from user_bookings where ub_up_id = p_up_id and ub_status = (select am_id from app_meta where am_amc_name = 'BOOKING_STATUS' and am_name='Active'))
        where up_id = p_up_id;
-
 end update_green_points;
-
-
  function confirm_booking
  (p_ubs_id in number)
  return number
@@ -323,9 +259,6 @@ end update_green_points;
    set ubs_accept_status = 'C'
      ,UBS_ACCEPTED =1
    where ubs_id = p_ubs_id;
-
- 
-
  -- save booking
   merge into user_bookings d
       using( select ubs_id
@@ -340,7 +273,6 @@ end update_green_points;
                , UBT_UPT_TRAVEL_MEANS 
                , UBS_TRAVEL_TIME  
                , UBT_GREEN_POINTS
-              
                , (select am_id from app_meta where am_amc_name = 'BOOKING_STATUS' and am_name='Active') as booking_status
                from user_booking_suggestions
                 left join user_booking_travel on UBS_UBT_ID_SELECTED = ubt_id
@@ -361,14 +293,10 @@ end update_green_points;
             ,UB_TRAVEL_TIME = s.UBS_TRAVEL_TIME
             ,UB_STATUS = s.booking_status
             ,UB_GREEN_POINTS = s.UBT_GREEN_POINTS
-           
     when not matched
      then insert (ub_date, ub_up_id, ub_ubs_id, UB_CL_ID ,UB_CW_ID, UB_PARKING, UB_EVCHARGING, UB_BIKERACK, UB_LOCKER, UB_TRAVEL_MEANS,UB_TRAVEL_TIME,UB_STATUS, UB_GREEN_POINTS ) 
      values (s.ubs_date, s.ubs_up_id, s.ubs_id ,s.ubs_cl_id ,s.ubs_cw_id ,s.upt_need_parking ,s.UPT_NEED_CHARGE, s.UPT_NEED_BIKERACK, s.UPT_NEED_LOCKER, s.UBT_UPT_TRAVEL_MEANS ,s.UBS_TRAVEL_TIME , s.booking_status, s.UBT_GREEN_POINTS);           
-
-
   -- finish booking
-
   /*  
   for r in (select * from user_bookings where ub_ubs_id = p_ubs_id)
    loop
@@ -376,54 +304,35 @@ end update_green_points;
     dbms_output.put_line( l_ub_id);
    end loop;  
    */
-   
    select * into lr_ub from user_bookings where ub_ubs_id = p_ubs_id;
     dbms_output.put_line( lr_ub.ub_id);
-    
     update user_booking_travel
       set ubt_ub_id = lr_ub.ub_id
       where ubt_ubs_id = lr_ub.ub_ubs_id
       and ubt_upt_travel_means = lr_ub.UB_TRAVEL_MEANS;
-
     book_wp
     (p_ub_id => lr_ub.ub_id);
-    
     book_calendar
      (p_up_id => lr_ub.ub_up_id
      ,p_date => lr_ub.ub_date
      ,p_ubs_id => lr_ub.ub_ubs_id
      ,p_ub_id => lr_ub.ub_id
     );
-
     update_green_points
      (p_up_id => lr_ub.ub_up_id);
-
     upd_loc_status
     (p_cl_id => lr_ub.ub_cl_id
     ,p_date => lr_ub.ub_date
     );
-    
     refresh_booking_suggestions
    (p_cl_id => lr_ub.ub_cl_id
    ,p_date => lr_ub.ub_date);
-
-
     l_confirmed := 1;
-   
-   
-  
-  
   return l_confirmed;
-
  /*exception
    when others then
       return 0;*/
  end confirm_booking ;
-
-
-
-  
-
 procedure get_booking_travel
 (p_ubs_id in number
 )
@@ -433,7 +342,6 @@ l_travel_delay number;
 l_travel_length number;
 l_travel_time_hist number;
 l_green number;
- 
 begin
 for r in (
 select ua_up_id, upt_id , cl_id,  UA_LAT as from_lat, UA_LONG from_lon, UPL_IS_PREFERED, CL_LAT to_lat, CL_LONG as to_lon, UPT_TRAVEL_MEANS, lower(am_name) as TRAVEL_NAME, lower(am_code) UPT_TRAVEL_MEANS_CODE, UPT_IS_PREFERED 
@@ -448,7 +356,6 @@ where ubs_id = p_ubs_id
 and ua_is_primary = 'Y'
 and ua_status = 'A'
 ) loop
-
 ext_api.get_travel_data
    (p_from_lat => r.from_lat
    ,p_from_lon => r.from_lon
@@ -461,8 +368,6 @@ ext_api.get_travel_data
    ,p_travel_length => l_travel_length
    ,p_travel_time_hist => l_travel_time_hist
    );
-
-
 if r.TRAVEL_NAME = 'car' then l_green := 1; 
 elsif r.TRAVEL_NAME = 'ev' then l_green := 2; 
 elsif r.TRAVEL_NAME = 'bus' then l_green := 3; 
@@ -471,8 +376,6 @@ elsif r.TRAVEL_NAME = 'bicycle' then l_green := 5;
 elsif r.TRAVEL_NAME = 'walking' then l_green := 6; 
 else l_green := 3;
 end if;
-
-
 merge into user_booking_travel d
 using (select p_ubs_id as ubs_id
              , r.upt_id as upt_id
@@ -498,22 +401,14 @@ when matched
 when not matched
   then insert (d.ubt_ubs_id, d.ubt_upt_id,d.ubt_travel_by,d.ubt_travel_time,d.ubt_travel_delay,d.ubt_travel_length,d.ubt_travel_time_hist,d.ubt_green_points,d.UBT_UPT_TRAVEL_MEANS)
   values (s.ubs_id,  s.upt_id, s.travel_by, s.l_travel_time, s.l_travel_delay, s.l_travel_length,  s.l_travel_time_hist,  s.green_points,  s.UPT_TRAVEL_MEANS);
-
-
 end loop;
-
 end get_booking_travel;
-
-
-  
-
 function get_pref_location
 (p_up_id in number
 ,p_date in date)
 return number
 is
 begin
-
 for r in 
 (with q_params as
 (select p_date as p_date
@@ -539,15 +434,12 @@ end loop;
 -- no preference
  return null;
 end get_pref_location;
-
-
 function get_rand_location
 (p_up_id in number
  )
 return number
 is
 begin
-
 for r in (
    select * from ( 
 select   
@@ -565,7 +457,6 @@ end loop;
 -- no preference
  return null;
 end get_rand_location;
-
 function get_rand_wp
 (p_cl_id in number
 ,p_date in date
@@ -573,7 +464,6 @@ function get_rand_wp
 return number
 is
 begin
-
 for r in (
     select * from (
  select  cw_id 
@@ -589,12 +479,9 @@ for r in (
 )loop
     return r.cw_id ;
 end loop;
-
 -- nothing available
 return null;
-
 end get_rand_wp;
-
 function get_pref_wp
 (p_up_id in number
 ,p_date in date
@@ -602,7 +489,6 @@ function get_pref_wp
 return number
 is
 begin
-
 for r in (with q_params as
 (select p_date as p_date
   ,p_up_id as P_UP_ID
@@ -623,11 +509,8 @@ select  cw_id
 )loop
    return r.cw_id ;
 end loop;
-
 return null;
-
 end get_pref_wp; 
-
 function get_wp
 (p_up_id in number
 ,p_date in date
@@ -635,15 +518,12 @@ function get_wp
 return number
 is
   l_cw_id number;
-
 begin
-
 l_cw_id := get_pref_wp
   (p_up_id =>p_up_id
   ,p_date  => p_date
   ,p_cl_id =>p_cl_id
   );
-
 if l_cw_id is null
   then
   l_cw_id := get_rand_wp
@@ -652,21 +532,14 @@ if l_cw_id is null
   ,p_cl_id =>p_cl_id
   );
 end if; 
-
 return l_cw_id;
-
 end get_wp;
-
-
-
-
 function get_base_temp
 (p_date in date
 ) return number
 is
 l_base_temp number;
 begin
-
 select case trim(to_char(p_date,'Month'))
    when 'January'   then -10
    when 'February'  then -10
@@ -682,28 +555,20 @@ select case trim(to_char(p_date,'Month'))
    when 'December'  then -5
    end into l_base_temp
   from dual;
-
   return l_base_temp; 
-
 end get_base_temp;
-
 function get_random_temp
 (p_date in date
 ) return number
 is
 begin
- 
  return get_base_temp(p_Date) + round(dbms_random.value(0,10));
-
 end get_random_temp;
-
-
 function get_weather
 (p_temp in number)
 return varchar2
 is
 begin
-
 for r in (
 select weather from (
 select 'Snow' as weather, dbms_random.random as ord from dual
@@ -718,13 +583,8 @@ select 'Sunny' as weather, dbms_random.random as ord from dual
 fetch first row only
 ) loop
  return r.weather;
-
 end loop;
-
-
 end get_weather;
-
-
 procedure get_random_weather_temp
 (p_date in date
 ,p_temp out number
@@ -735,31 +595,22 @@ l_weather varchar2(50);
 begin
 l_temp := get_random_temp (p_date => p_date );
 l_weather := get_weather (p_Temp => l_temp);
-
 p_temp := l_temp;
 p_weather := l_weather;
-
 end get_random_weather_temp;
-
-
 procedure gen_rand_location_weather
 is
  l_weather varchar2(10);
  l_temp number;
-
 begin
-
-
 for r in (select distinct cl_id, trunc(uc_date) loc_date from company_locations
           join user_calendar on 1=1
           )
 loop
-
 book_api.get_random_weather_temp
 (p_date => trunc(r.loc_date)
 ,p_temp => l_temp
 ,p_weather => l_weather);
-
 MERGE INTO COMPANY_LOC_STATUS e
     USING (select r.cl_id as w_cl_id, r.loc_date as w_date, floor(l_temp) as w_temp, l_weather as w_weather from dual ) h
     ON (e.cls_cl_id = h.w_cl_id and e.CLS_DATE = h.w_date)
@@ -769,13 +620,8 @@ MERGE INTO COMPANY_LOC_STATUS e
   WHEN NOT MATCHED THEN
     INSERT (cls_cl_id, CLS_DATE, CLS_WEATHER, CLS_TEMP)
     VALUES (h.w_cl_id, h.w_date, h.w_weather, w_temp);
-
  end loop;
-
 end gen_rand_location_weather;
-
-
-
 procedure suggest_booking
 (p_up_id in number
 ,p_date in date)
@@ -785,37 +631,27 @@ l_cw_id   number;
 l_weather varchar2(200);
 l_temp    varchar2(200);
 begin
-
-
 for r in (select * from user_calendar 
           left join user_booking_suggestions on ubs_up_id = uc_up_id and ubs_date = uc_date
           where (uc_up_id = p_up_id or p_up_id is null)
           and (uc_date = p_date or p_date is null)
           and ubs_id is null)
 loop
-
 if mod(dbms_random.random,5) in (1,2,3)
  then
    l_cl_id := get_pref_location
      (p_up_id => r.uc_up_id
      ,p_date  => r.uc_date);
 else
-
    l_cl_id := get_rand_location
      (p_up_id => r.uc_up_id
      );
-  
 end if;
-
   l_cw_id :=  get_wp
      (p_up_id => r.uc_up_id
      ,p_date => r.uc_date
     ,p_cl_id => l_cl_id);
-
-
 dbms_output.put_line (l_cl_id||'/'||l_cw_id);
-
-
 insert into user_booking_suggestions
           (ubs_up_id
           , ubs_date
@@ -856,22 +692,14 @@ select  r.uc_up_id as ubs_up_id,
 from company_loc_status
 where cls_cl_id = l_cl_id
 and cls_date = r.uc_date;
-
 end loop;
-
  for r in (select * from user_booking_suggestions where not exists (select 1 from user_booking_travel where ubt_ubs_id = ubs_id))
  loop
    get_booking_travel
     (p_ubs_id => r.ubs_id
     );
-
  end loop;
-
-
-
 end suggest_booking;
-
-
 function remove_booking
  (p_ub_id in number
  )
@@ -880,9 +708,7 @@ function remove_booking
  l_done number := 0;
  lr_ub user_bookings%rowtype;
  begin
-
   select * into lr_ub from user_bookings where ub_id = p_ub_id;
-
 -- reset suggestion
  update user_booking_suggestions
    set  UBS_UBT_ID_SELECTED = null
@@ -891,12 +717,10 @@ function remove_booking
        ,UBS_TRAVEL_MEANS = null
        ,UBS_ACCEPTED =0
    where ubs_id = lr_ub.ub_ubs_id;
-
  -- reset suggestion travel selection
      update user_booking_travel
       set ubt_ub_id = null
       where ubt_ubs_id = lr_ub.ub_ubs_id ;
-
   -- reset workplace if booked by us
   update  company_wp_status
    set CWS_BOOKING_STATUS = 70
@@ -904,47 +728,28 @@ function remove_booking
    where cws_cw_id =   lr_ub.ub_cw_id
    and cws_date = lr_ub.ub_date
    and cws_booked_by = lr_ub.ub_up_id;
-
   -- reset calendar
   update user_calendar
     set uc_ub_id =  null
     where uc_ub_id = lr_ub.ub_id;
-
-
  -- remove booking
  delete from user_bookings
       where ub_id = p_ub_id;
- 
-  
-    
-
     update_green_points
      (p_up_id => lr_ub.ub_up_id);
-
     upd_loc_status
     (p_cl_id => lr_ub.ub_cl_id
     ,p_date => lr_ub.ub_date
     );
-    
     refresh_booking_suggestions
    (p_cl_id => lr_ub.ub_cl_id
    ,p_date => lr_ub.ub_date);
-
-
     l_done := 1;
-   
-   
-  
-  
   return l_done;
-
  /*exception
    when others then
       return 0;*/
  end remove_booking ;
-
-
-
  function cancel_booking
  (p_ub_id in number
  )
@@ -953,9 +758,7 @@ function remove_booking
  l_done number := 0;
  lr_ub user_bookings%rowtype;
  begin
-
   select * into lr_ub from user_bookings where ub_id = p_ub_id;
-
 -- reset suggestion
  update user_booking_suggestions
    set  UBS_UBT_ID_SELECTED = null
@@ -963,63 +766,38 @@ function remove_booking
        ,UBS_TRAVEL_TIME = null
        ,UBS_TRAVEL_MEANS = null
    where ubs_id = lr_ub.ub_ubs_id;
-
  -- reset suggestion travel selection
      update user_booking_travel
       set ubt_ub_id = null
       where ubt_ubs_id = lr_ub.ub_ubs_id ;
-
   -- reset workplace
   update  company_wp_status
    set CWS_BOOKING_STATUS = 70
    where cws_cw_id =   lr_ub.ub_cw_id
    and cws_date = lr_ub.ub_date;
-
   -- reset calendar
   update user_calendar
     set uc_ub_id =  null
     where uc_ub_id = lr_ub.ub_id;
-
-
  -- remove booking
  update user_bookings
  set UB_STATUS = 61
  where ub_id = p_ub_id;
- 
-  
-    
-
     update_green_points
      (p_up_id => lr_ub.ub_up_id);
-
     upd_loc_status
     (p_cl_id => lr_ub.ub_cl_id
     ,p_date => lr_ub.ub_date
     );
-    
     refresh_booking_suggestions
    (p_cl_id => lr_ub.ub_cl_id
    ,p_date => lr_ub.ub_date);
-
-
     l_done := 1;
-   
-   
-  
-  
   return l_done;
-
  /*exception
    when others then
       return 0;*/
- end cancel_booking ;
-
-
-
-end ;
-
-
-]]></n0:source>
+ end cancel_booking ;end ;]]></n0:source>
 		</n0:createOraclePackageBody>
 	</changeSet>
 </databaseChangeLog>
