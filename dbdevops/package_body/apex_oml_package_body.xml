@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="f4ce98b75f0e5fdaddbfd3d786033f37f85c2246" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOraclePackageBody objectName="APEX_OML" objectType="PACKAGE_BODY" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "APP_CORE"."APEX_OML" as
+
+/** APEX_OML package body script
+*used for meetup "From Edge to to Machine Learning" Hands on Lab 3
+*contains package specification with functions and procedures for using OML data from Lab 2
+*author: Daniel Ivanescu (daniel.ivanescu@oracle.com)
+*date: 10.06.2021
+*/
+
+function get_oml_token
+return VARCHAR2
+is
+  c_token_name varchar2(250) := 'oml_token';
+  l_body clob;
+  l_response clob;
+  l_result varchar2(32000);
+  j apex_json.t_values; 
+begin
+-- check if we have a valid token
+  for r in (select token_value 
+            from auth_tokens 
+           where token_name =  c_token_name 
+             and token_user = g_oml_user
+             and sysdate between token_inserted and token_expires )
+             loop
+                l_result := r.token_value;
+                return l_result;
+             end loop;
+
+-- no valid token; get a new one
+-- prepare body
+  l_body := '{
+    "grant_type":"password",
+    "username":"'||g_oml_user||'",
+    "password":"'||g_oml_pwd||'"}';
+
+-- prepare rest call
+  APEX_WEB_SERVICE.g_request_headers.delete();
+  APEX_WEB_SERVICE.g_request_headers(1).name := 'Content-Type';
+  APEX_WEB_SERVICE.g_request_headers(1).value := 'application/json';
+
+-- make rest call
+  l_response:= APEX_WEB_SERVICE.MAKE_REST_REQUEST(
+    p_url               => g_auth_url,
+    p_http_method       => 'POST',
+    p_body              => l_body
+);
+-- get token value from respone
+  apex_json.parse(j, l_response); 
+  l_result := apex_json.GET_VARCHAR2 (p_path=>'accessToken',p_values=>j);  
+-- save token in table
+  insert into auth_tokens (token_name, token_user, token_value) values (c_token_name, g_oml_user, l_result );
+-- return token value
+  return l_result;
+end get_oml_token;
+
+
+procedure list_oml_models
+is
+  l_token varchar2(32000);
+  l_body clob;
+  l_response clob;
+  l_result varchar2(32000);
+  resp_json apex_json.t_values; 
+  l_model_count number;
+  l_model_param varchar2(2000);
+begin
+-- get token
+  l_token := APEX_OML.get_oml_token;
+-- prepare rest call
+  APEX_WEB_SERVICE.g_request_headers.delete();
+  APEX_WEB_SERVICE.g_request_headers(1).name := 'Content-Type';
+  APEX_WEB_SERVICE.g_request_headers(1).value := 'application/json';
+  APEX_WEB_SERVICE.g_request_headers(2).name := 'Authorization';  
+  APEX_WEB_SERVICE.g_request_headers(2).value := 'Bearer ' || l_token;
+-- make rest call
+  l_response:= APEX_WEB_SERVICE.MAKE_REST_REQUEST(
+    p_url               => g_models_url,
+    p_http_method       => 'GET'
+  );
+-- parse rest resonse and print model paramters
+  apex_json.parse(resp_json, l_response); 
+  l_model_count := apex_json.GET_COUNT (p_path=>'items',p_values=>resp_json);  
+  for i in 1..l_model_count
+  loop
+    l_model_param := apex_json.GET_VARCHAR2 (p_path=>'items[%d].modelId',p0=> i,p_values=>resp_json);  
+    dbms_output.put_line ('modelId: '||l_model_param);
+    l_model_param := apex_json.GET_VARCHAR2 (p_path=>'items[%d].modelName',p0=> i,p_values=>resp_json);  
+    dbms_output.put_line ('modelName: '||l_model_param);
+    l_model_param := apex_json.GET_VARCHAR2 (p_path=>'items[%d].version',p0=> i,p_values=>resp_json);  
+    dbms_output.put_line ('version: '||l_model_param);
+  end loop;
+end list_oml_models;
+
+/*
+procedure get_model_score
+(p_body in clob
+,p_0_probability out number
+,p_1_probability out number
+)
+is
+  l_token varchar2(32000);
+  l_body clob;
+  l_response clob;
+  l_result varchar2(32000);
+  resp_json apex_json.t_values; 
+  l_score_count number;
+  l_class_count number;
+  l_label varchar2(2000);
+  l_probability number;
+begin
+-- get token
+  l_token := APEX_OML.get_oml_token;
+-- prepare rest call
+  APEX_WEB_SERVICE.g_request_headers.delete();
+  APEX_WEB_SERVICE.g_request_headers(1).name := 'Content-Type';
+  APEX_WEB_SERVICE.g_request_headers(1).value := 'application/json';
+  APEX_WEB_SERVICE.g_request_headers(2).name := 'Authorization';
+  APEX_WEB_SERVICE.g_request_headers(2).value := 'Bearer ' || l_token;
+-- make rest call
+  l_response:= APEX_WEB_SERVICE.MAKE_REST_REQUEST(
+    p_url               => g_score_url,
+    p_http_method       => 'POST',
+    p_body              => p_body
+  );
+-- return probabilty label and value  
+  apex_json.parse(resp_json, l_response); 
+  l_score_count := apex_json.GET_COUNT (p_path=>'scoringResults',p_values=>resp_json);  
+  for i in 1..l_score_count
+  loop
+    l_class_count := apex_json.GET_COUNT (p_path=>'scoringResults[%d].classifications',p0=> i,p_values=>resp_json);  
+    for j in 1..l_class_count 
+      loop 
+        l_label := apex_json.GET_VARCHAR2 (p_path=>'scoringResults[%d].classifications[%d].label',p0=>i,p1=>j,p_values=>resp_json);  
+        l_probability := apex_json.GET_NUMBER (p_path=>'scoringResults[%d].classifications[%d].probability',p0=> i,p1=>j,p_values=>resp_json);  
+        if l_label = '0' 
+            then p_0_probability := l_probability;
+          elsif l_label = '1' 
+            then p_1_probability := l_probability;
+          else null;
+        end if;
+      end loop;
+  end loop;
+end get_model_score; 
+*/
+/*
+function get_cust_body_json
+(p_cust_id          in number)
+return clob
+is 
+  l_body clob;
+begin
+-- build body json
+  for r in (
+    SELECT json_object ('inputRecords' value 
+                  JSON_ARRAYAGG(
+                     JSON_OBJECT('AGE' VALUE (to_char(sysdate,'YYYY')-cust_year_of_birth),
+                                  'BOOKKEEPING_APPLICATION' VALUE BOOKKEEPING_APPLICATION,
+                                  'CUST_GENDER' VALUE CUST_GENDER,
+                                  'CUST_MARITAL_STATUS' value CUST_MARITAL_STATUS,
+                                  'EDUCATION' value EDUCATION,
+                                  'HOME_THEATER_PACKAGE' value HOME_THEATER_PACKAGE,
+                                  'HOUSEHOLD_SIZE' value HOUSEHOLD_SIZE,
+                                  'OCCUPATION' value OCCUPATION,
+                                  'YRS_RESIDENCE' value YRS_RESIDENCE,
+                                  'Y_BOX_GAMES' value Y_BOX_GAMES)
+                       ) 
+                  returning clob 
+                   ) as cust_json
+         FROM customers cust
+         left join supplementary_demographics sup on cust.cust_id = sup.cust_id
+         where cust.cust_id =  p_cust_id
+        )
+        loop
+          l_body := r.cust_json;
+        end loop;
+
+  return l_body;
+end get_cust_body_json;
+
+
+procedure get_model_prediction
+(p_cust_id          in number
+,p_pred_value       out varchar2
+,p_pred_probability out number
+)
+is
+  l_body clob;
+  l_0_prob number;
+  l_1_prob number;
+begin
+  l_body := get_cust_body_json
+          (p_cust_id  => p_cust_id );
+  if l_body is not null 
+  then
+-- get prediction probability
+     APEX_OML.get_model_score
+     (p_body => l_body
+     ,p_0_probability => l_0_prob
+     ,p_1_probability => l_1_prob
+     );
+-- determine predicted value
+    if l_0_prob >= l_1_prob 
+       then
+         p_pred_value := '0';
+         p_pred_probability := l_0_prob;
+       else
+         p_pred_value := '1';
+         p_pred_probability := l_1_prob;
+     end if;
+  end if;
+end get_model_prediction;
+
+
+
+procedure save_affinity_prediction
+(p_cust_id          in number
+)is
+l_affinity_card        varchar2(10);
+l_affinity_card_pred   varchar2(10);
+l_affinity_card_prob   number;
+l_affinity_card_action varchar2(200);
+begin
+-- get prediction
+  APEX_OML.get_model_prediction
+    (p_cust_id          => p_cust_id
+    ,p_pred_value       => l_affinity_card_pred
+    ,p_pred_probability => l_affinity_card_prob
+    );
+-- determine suggested action based on prediction
+  if (l_affinity_card_pred = '1' and l_affinity_card_prob >=0.75)
+  then
+    l_affinity_card_action := 'Push';
+  elsif (l_affinity_card_pred = '1' and l_affinity_card_prob <0.7 and l_affinity_card_prob >=0.5) 
+    then 
+     l_affinity_card_action := 'Mention';
+  else
+       l_affinity_card_action := 'No action';
+  end if;   
+-- save prediction data
+  merge into cust_affinity_prediction d
+  using  ( select p_cust_id as cust_id
+       , affinity_card as affinity_card
+       , l_affinity_card_pred as affinity_card_pred
+       , l_affinity_card_prob as affinity_card_prob
+       , l_affinity_card_action as affinity_card_action
+       , sysdate as pred_date
+       from supplementary_demographics
+       where cust_id = p_cust_id
+       ) s
+  on (d.cust_id = s.cust_id)
+  when matched then       
+    update
+     set
+        d.affinity_card = s.affinity_card
+       ,d.affinity_card_pred = s.affinity_card_pred
+       ,d.affinity_card_prob = s.affinity_card_prob
+       ,d.affinity_card_action = s.affinity_card_action
+       ,d.pred_date = s.pred_date
+  when not matched 
+    then       
+      insert values
+      (s.cust_id
+      ,s.affinity_card
+      ,s.affinity_card_pred
+      ,s.affinity_card_prob
+      ,s.affinity_card_action
+      ,s.pred_date
+      );
+end save_affinity_prediction;
+
+*/
+
+end APEX_OML;
+]]></n0:source>
+		</n0:createOraclePackageBody>
+	</changeSet>
+</databaseChangeLog>

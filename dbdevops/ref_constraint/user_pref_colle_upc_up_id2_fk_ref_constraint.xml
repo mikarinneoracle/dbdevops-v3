@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="6c461e1e85cd54fb44389b30cb4519a8109d9b24" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createOracleRefConstraint objectName="USER_PREF_COLLE_UPC_UP_ID2_FK" objectType="REF_CONSTRAINT" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  ALTER TABLE "APP_CORE"."USER_PREF_COLLEAGUES" ADD CONSTRAINT "USER_PREF_COLLE_UPC_UP_ID2_FK" FOREIGN KEY ("UPC_UP_ID2")
+	  REFERENCES "APP_CORE"."USER_PROFILES" ("UP_ID") ON DELETE CASCADE ENABLE]]></n0:source>
+		</n0:createOracleRefConstraint>
+	</changeSet>
+</databaseChangeLog>
