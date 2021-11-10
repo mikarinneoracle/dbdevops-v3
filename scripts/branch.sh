@@ -28,7 +28,7 @@ git checkout $task_id-task
 if [ ! -d "../dbdevops" ]; then
     mkdir ../dbdevops
 fi
-cd ..dbdevops
+cd ../dbdevops
 
 printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\ntables\nlb genschema -split\n${tablesconfig}\nexit" > gen.sql
 sql /nolog @./gen.sql
