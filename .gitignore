@@ -7,3 +7,4 @@ dbdevops/*.sql
 dbdevops/Wallet*
 dbdevops/wallet*
 scripts/settings.env
+scripts/settings.env.backup
