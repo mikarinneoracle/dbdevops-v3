@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="645bc81482cf252d9268506aba22e06576aedc14" author="(APP_CORE)-Generated" failOnError="false"    >
+		<n0:createSxmlObject objectName="OEHR_LOCATIONS_SEQ" objectType="SEQUENCE" ownerName="APP_CORE"   >
+			<n0:source><![CDATA[
+  <SEQUENCE xmlns="http://xmlns.oracle.com/ku" version="1.0">
+   <SCHEMA>APP_CORE</SCHEMA>
+   <NAME>OEHR_LOCATIONS_SEQ</NAME>
+   <START_WITH>3300</START_WITH>
+   <INCREMENT>100</INCREMENT>
+   <MINVALUE>1</MINVALUE>
+   <MAXVALUE>9900</MAXVALUE>
+   <CACHE>0</CACHE>
+   <SCALE>NOSCALE</SCALE>
+</SEQUENCE>]]></n0:source>
+		</n0:createSxmlObject>
+	</changeSet>
+</databaseChangeLog>
