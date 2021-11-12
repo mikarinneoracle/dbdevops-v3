@@ -1,10 +1,10 @@
 .DS_Store
 terraform/Wallet*
-terraform/wallet*
+#terraform/wallet*
 terraform/*.out
 terraform/.terraform*
 dbdevops/*.sql
 dbdevops/Wallet*
-dbdevops/wallet*
+#dbdevops/wallet*
 scripts/settings.env
 scripts/settings.env.backup
