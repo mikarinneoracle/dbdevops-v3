@@ -42,7 +42,7 @@ sql /nolog @./upd.sql
 rm -f upd.sql
 
 if [ -n "${wsname}" ]; then
-    printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\n/\n" > upd_apex.sql
+    printf "set cloudconfig ./wallet-${task_id}.zip\nconn admin/${pwd}@dev${task_id}_high\n/\n" > upd_apex.sql
     printf "begin\n" >> upd_apex.sql
     printf "    for c1 in (select privilege\n" >> upd_apex.sql
     printf "             from sys.dba_sys_privs\n" >> upd_apex.sql
