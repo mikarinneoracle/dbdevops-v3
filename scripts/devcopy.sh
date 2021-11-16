@@ -83,7 +83,7 @@ if [ -n "${wsname}" ]; then
     rm -f upd_apex.sql
 fi
 
-if [ -f "f${application_id}.xml"]; then
+if [ -f "f${application_id}.xml" ]; then
     printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
     sql /nolog @./upd_apex.sql
     rm -f upd_apex.sql
