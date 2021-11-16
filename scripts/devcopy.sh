@@ -27,14 +27,15 @@ echo "*** COPYING FROM REPO TO Dev-${task_id} WITH A TASK ID ${task_id} ***"
 
 git checkout $task_id-task
 
+printf "set cloudconfig ./wallet-${task_id}.zip\n" > upd.sql
+
 if [ "${answer}" == "Y" ]; then
-    printf "set cloudconfig ./wallet-${task_id}.zip\nconn admin/${pwd}@dev${task_id}_high\n/\n" > upd.sql
+    printf "set cloudconfig ./wallet-${task_id}.zip\nconn admin/${pwd}@dev${task_id}_high\n/\n" >> upd.sql
     printf "create user ${schema} identified by \"${pwd}\"\n/\n" >> upd.sql
     printf "GRANT CONNECT to ${schema};\n/\n" >> upd.sql
-    sql /nolog @./upd.sql
 fi
 
-printf "conn ${schema}/${pwd}@dev${task_id}_high\n" > upd.sql
+printf "conn ${schema}/${pwd}@dev${task_id}_high\n" >> upd.sql
 if [ -f "controller.xml" ]; then
    printf "lb update -changelog controller.xml\n" >> upd.sql
 else
@@ -89,12 +90,14 @@ if [ -n "${wsname}" ]; then
     rm -f upd_apex.sql
 fi
 
-if [ -f "f${application_id}.xml" ]; then
-    printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
-    sql /nolog @./upd_apex.sql
-    rm -f upd_apex.sql
-else
-    echo "${application_id} not found. Not copied to Dev${task_id}."
+if [ -n "${application_id}" ]; then
+    if [ -f "f${application_id}.xml" ]; then
+        printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
+        sql /nolog @./upd_apex.sql
+        rm -f upd_apex.sql
+    else
+        echo "${application_id} not found. Not copied to Dev${task_id}."
+    fi
 fi
 
 git checkout master
