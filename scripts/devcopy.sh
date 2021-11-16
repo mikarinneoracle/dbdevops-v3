@@ -13,9 +13,9 @@ else
     read -p "Existing schema/user name: " schema
 fi
 
-read -p "Apex workspace to be created (leave blank if not to be created): " wsname
+read -p "Apex workspace to be created (optional): " wsname
 
-read -p "Apex app id (optional) to be copied: " application_id
+read -p "Apex app id to be copied (optional): " application_id
 
 if [ ! -d "../dbdevops" ]; then
     mkdir ../dbdevops
