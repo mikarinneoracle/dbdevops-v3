@@ -7,7 +7,7 @@ read -s -p "Dev${task_id} db password: " pwd
 printf "\n"
 
 read -p "Create a new Dev${task_id} db schema/user (Yn) : " answer
-if [ "${answer}" != "Y" ]; then
+if [ "${answer}" == "Y" ]; then
     read -p "New schema/user name: " schema
 else
     read -p "Existing schema/user name: " schema
@@ -27,7 +27,7 @@ echo "*** COPYING FROM REPO TO Dev-${task_id} WITH A TASK ID ${task_id} ***"
 
 git checkout $task_id-task
 
-if [ "${answer}" != "Y" ]; then
+if [ "${answer}" == "Y" ]; then
     printf "set cloudconfig ./wallet-${task_id}.zip\nconn admin/${pwd}@dev${task_id}_high\n/\n" > upd.sql
     printf "create user ${schema} identified by \"${pwd}\"\n/\n" >> upd.sql
     printf "GRANT CONNECT to ${schema};\n/\n" >> upd.sql
