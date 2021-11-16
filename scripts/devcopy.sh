@@ -8,7 +8,10 @@ printf "\n"
 
 read -p "Create a new Dev${task_id} db schema/user (yN) : " answer
 if [ "${answer}" == "Y" ] || [ "${answer}" == "Y" ]; then
-    read -p "New schema/user name: " schema
+    read -p "New schema/user name (ADMIN not allowed): " schema
+    if [ $schema == "ADMIN" ] || [ $schema == "admin" ]; then
+        echo "New schema $schema allowed. Exiting.";
+    fi
 else
     read -p "Existing schema/user name: " schema
 fi
@@ -39,12 +42,12 @@ printf "conn ${schema}/${pwd}@dev${task_id}_high\n" >> upd.sql
 if [ -f "controller.xml" ]; then
    printf "lb update -changelog controller.xml\n" >> upd.sql
 else
-    echo "Controller.xml not found. Schema not copied to Dev${task_id}."
+    echo "Controller.xml not found. Schema not copied to Dev${task_id} ${schema}."
 fi
 if [ -f "data.xml" ]; then
    printf "lb update -changelog data.xml\n" >> upd.sql
 else
-    echo "Data.xml not found. Not copied to Dev${task_id}."
+    echo "Data.xml not found. Data not copied to Dev${task_id} ${schema}."
 fi
 printf "\ntables\nexit" >> upd.sql
 
@@ -96,7 +99,7 @@ if [ -n "${application_id}" ]; then
         sql /nolog @./upd_apex.sql
         rm -f upd_apex.sql
     else
-        echo "${application_id} not found. Not copied to Dev${task_id}."
+        echo "${application_id} not found. Not copied to Dev${task_id} ${schema}."
     fi
 fi
 
