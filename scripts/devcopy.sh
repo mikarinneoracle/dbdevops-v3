@@ -42,7 +42,8 @@ sql /nolog @./upd.sql
 rm -f upd.sql
 
 if [ -n "${wsname}" ]; then
-    printf "begin\n" > upd_apex.sql
+    printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\n/\n" > upd_apex.sql
+    printf "begin\n" >> upd_apex.sql
     printf "    for c1 in (select privilege\n" >> upd_apex.sql
     printf "             from sys.dba_sys_privs\n" >> upd_apex.sql
     printf "             where grantee = 'APEX_GRANTS_FOR_NEW_USERS_ROLE' ) loop\n" >> upd_apex.sql
@@ -82,7 +83,7 @@ if [ -n "${wsname}" ]; then
     rm -f upd_apex.sql
 fi
 
-if [ -n "${application_id}" ]; then
+if [ -f "f${application_id}.xml"]; then
     printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
     sql /nolog @./upd_apex.sql
     rm -f upd_apex.sql
