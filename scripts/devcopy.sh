@@ -2,13 +2,13 @@ export $(grep -v '^#' settings.env | xargs -d '\n')
  
 read -p "Task ID: " task_id
 
-read -p "Dev${task_id} db schema/user: " schema
-
 read -s -p "Dev${task_id} db password: " pwd
 
 printf "\n"
 
-read -p "Apex app id (optional): " application_id
+read -p "Dev${task_id} db schema/user to be created: " schema
+
+read -p "Apex app id (optional) to be copied: " application_id
 
 if [ -n "${application_id}" ]; then
     read -p "Apex workspace to be created (leave blank if already exists): " wsname
