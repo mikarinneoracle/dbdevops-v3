@@ -24,7 +24,14 @@ echo "*** COPYING FROM REPO TO Dev-${task_id} WITH A TASK ID ${task_id} ***"
 
 git checkout $task_id-task
 
-printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog controller.xml\nlb update -changelog data.xml\ntables\nexit" > upd.sql
+printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\n" > upd.sql
+if [ -f "controller.xml" ]; then
+   printf "lb update -changelog controller.xml\n" >> upd.sql
+fi
+if [ -f "data.xml" ]; then
+   printf "lb update -changelog data.xml\n" >> upd.sql
+fi
+printf "\ntables\nexit" >> upd.sql
 
 sql /nolog @./upd.sql
 rm -f upd.sql
@@ -49,7 +56,7 @@ if [ -n "${wsname}" ]; then
     printf "     );\n" >> upd_apex.sql
     printf "     commit;\n" >> upd_apex.sql
     printf "end;\n/\n\n" >> upd_apex.sql
-    printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\n\n" >> upd_apex.sql
+    printf "conn ${schema}/${pwd}@dev${task_id}_high\n\n" >> upd_apex.sql
     printf "begin\n" >> upd_apex.sql
     printf "    apex_util.set_security_group_id( apex_util.find_security_group_id( p_workspace => '${schema}'));\n" >> upd_apex.sql
     printf "    apex_util.create_user(\n" >> upd_apex.sql
