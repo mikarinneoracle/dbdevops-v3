@@ -6,7 +6,7 @@ read -s -p "Dev${task_id} db password: " pwd
 
 printf "\n"
 
-read -p "Dev${task_id} db schema/user to be created: " schema
+read -p "Dev${task_id} db schema/user to be created (leave blank if not to be created): " schema
 
 read -p "Apex workspace to be created (leave blank if not to be created): " wsname
 
@@ -22,10 +22,14 @@ echo "*** COPYING FROM REPO TO Dev-${task_id} WITH A TASK ID ${task_id} ***"
 
 git checkout $task_id-task
 
-printf "set cloudconfig ./wallet-${task_id}.zip\nconn admin/${pwd}@dev${task_id}_high\n/\n" > upd.sql
-printf "create user ${schema} identified by \"${pwd}\"\n/\n" >> upd.sql
-printf "GRANT CONNECT to ${schema};\n/\n" >> upd.sql
-printf "conn ${schema}/${pwd}@dev${task_id}_high\n" >> upd.sql
+if [ -n "${wsname}" ]; then
+    printf "set cloudconfig ./wallet-${task_id}.zip\nconn admin/${pwd}@dev${task_id}_high\n/\n" > upd.sql
+    printf "create user ${schema} identified by \"${pwd}\"\n/\n" >> upd.sql
+    printf "GRANT CONNECT to ${schema};\n/\n" >> upd.sql
+    sql /nolog @./upd.sql
+fi
+
+printf "conn ${schema}/${pwd}@dev${task_id}_high\n" > upd.sql
 if [ -f "controller.xml" ]; then
    printf "lb update -changelog controller.xml\n" >> upd.sql
 else
