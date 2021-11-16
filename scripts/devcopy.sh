@@ -8,11 +8,9 @@ printf "\n"
 
 read -p "Dev${task_id} db schema/user to be created: " schema
 
-read -p "Apex app id (optional) to be copied: " application_id
+read -p "Apex workspace to be created (leave blank if not to be created): " wsname
 
-if [ -n "${application_id}" ]; then
-    read -p "Apex workspace to be created (leave blank if already exists): " wsname
-fi
+read -p "Apex app id (optional) to be copied: " application_id
 
 if [ ! -d "../dbdevops" ]; then
     mkdir ../dbdevops
@@ -30,13 +28,15 @@ printf "GRANT CONNECT to ${schema};\n/\n" >> upd.sql
 printf "conn ${schema}/${pwd}@dev${task_id}_high\n" >> upd.sql
 if [ -f "controller.xml" ]; then
    printf "lb update -changelog controller.xml\n" >> upd.sql
+else
+    echo "Controller.xml not found. Schema not copied to Dev${task_id}."
 fi
 if [ -f "data.xml" ]; then
    printf "lb update -changelog data.xml\n" >> upd.sql
+else
+    echo "Data.xml not found. Not copied to Dev${task_id}."
 fi
 printf "\ntables\nexit" >> upd.sql
-
-cat upd.sql
 
 sql /nolog @./upd.sql
 rm -f upd.sql
@@ -76,9 +76,6 @@ if [ -n "${wsname}" ]; then
     printf "    );\n" >> upd_apex.sql
     printf "    commit;\n" >> upd_apex.sql
     printf "end;\n/\nexit\n" >> upd_apex.sql
-
-    cat upd_apex.sql
-    
     sql /nolog @./upd_apex.sql
     rm -f upd_apex.sql
 fi
@@ -87,6 +84,8 @@ if [ -f "f${application_id}.xml" ]; then
     printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
     sql /nolog @./upd_apex.sql
     rm -f upd_apex.sql
+else
+    echo "${application_id} not found. Not copied to Dev${task_id}."
 fi
 
 git checkout master
