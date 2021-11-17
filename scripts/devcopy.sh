@@ -35,7 +35,8 @@ printf "set cloudconfig ./wallet-${task_id}.zip\n" > upd.sql
 if [ "${answer}" == "Y" ]; then
     printf "set cloudconfig ./wallet-${task_id}.zip\nconn admin/${pwd}@dev${task_id}_high\n/\n" >> upd.sql
     printf "create user ${schema} identified by \"${pwd}\"\n/\n" >> upd.sql
-    printf "GRANT CONNECT to ${schema};\n/\n" >> upd.sql
+    printf "GRANT CONNECT to ${schema};\n" >> upd.sql
+    printf "ALTER USER ${schema} quota unlimited on DATA;\n/\n" >> upd.sql
 fi
 
 printf "conn ${schema}/${pwd}@dev${task_id}_high\n" >> upd.sql
