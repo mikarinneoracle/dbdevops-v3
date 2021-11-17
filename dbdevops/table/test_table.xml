@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="25d1f1237cc7da88d91e6390cac4dab1de7b3c05" author="(TEST)-Generated" failOnError="false"    >
+	<changeSet id="11400c80284147e95aae51928c0462c8c8184aa2" author="(TEST)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="TEST" objectType="TABLE" ownerName="TEST"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -22,11 +22,23 @@
       <PHYSICAL_PROPERTIES>
          <HEAP_TABLE>
             <SEGMENT_ATTRIBUTES>
-               <SEGMENT_CREATION_DEFERRED></SEGMENT_CREATION_DEFERRED>
+               <SEGMENT_CREATION_IMMEDIATE></SEGMENT_CREATION_IMMEDIATE>
                <PCTFREE>10</PCTFREE>
                <PCTUSED>40</PCTUSED>
                <INITRANS>10</INITRANS>
                <MAXTRANS>255</MAXTRANS>
+               <STORAGE>
+                  <INITIAL>65536</INITIAL>
+                  <NEXT>1048576</NEXT>
+                  <MINEXTENTS>1</MINEXTENTS>
+                  <MAXEXTENTS>2147483645</MAXEXTENTS>
+                  <PCTINCREASE>0</PCTINCREASE>
+                  <FREELISTS>1</FREELISTS>
+                  <FREELIST_GROUPS>1</FREELIST_GROUPS>
+                  <BUFFER_POOL>DEFAULT</BUFFER_POOL>
+                  <FLASH_CACHE>DEFAULT</FLASH_CACHE>
+                  <CELL_FLASH_CACHE>DEFAULT</CELL_FLASH_CACHE>
+               </STORAGE>
                <TABLESPACE>DATA</TABLESPACE>
                <LOGGING>Y</LOGGING>
             </SEGMENT_ATTRIBUTES>
