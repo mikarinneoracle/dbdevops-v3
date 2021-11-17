@@ -6,8 +6,8 @@ read -s -p "Dev${task_id} db password: " pwd
 
 printf "\n"
 
-read -p "Create a new Dev${task_id} db schema/user (yN) : " answer
-if [ "${answer}" == "Y" ] || [ "${answer}" == "Y" ]; then
+read -p "Create a new Dev${task_id} db schema/user (Y for yes) : " answer
+if [ "${answer}" == "Y" ]; then
     read -p "New schema/user name (ADMIN not allowed): " schema
     if [ $schema == "ADMIN" ] || [ $schema == "admin" ]; then
         echo "New schema $schema allowed. Exiting.";
