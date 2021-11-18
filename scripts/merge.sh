@@ -21,7 +21,8 @@ if [ ! -d "../dbdevops" ]; then
 fi
 cd ../dbdevops
 
-wget $prod_db_wallet_preauth -O wallet.zip
+wget $prod_db_wallet_preauth -O wallet.zip > wget.out
+rm -f wget.out
 
 echo "*** COPY REPO MASTER TO ${name} ***"
 
@@ -33,7 +34,8 @@ else
     echo "controller.xml not found. Not copied to ${prod_instance_name}." >> upd.sql
 fi
 
-for filename in /data/*.xml; do
+for filename in data/*.xml; do
+    [ -e "$filename" ] || continue
     printf "lb update -changelog ${filename}\ntables\nexit" >> upd.sql
 done
 
