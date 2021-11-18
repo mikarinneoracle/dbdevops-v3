@@ -80,7 +80,7 @@ if [ -n "${wsname}" ]; then
     printf "    apex_util.set_security_group_id( apex_util.find_security_group_id( p_workspace => '${schema}'));\n" >> upd_apex.sql
     printf "    apex_util.create_user(\n" >> upd_apex.sql
     printf "        p_user_name               => '${schema}',\n" >> upd_apex.sql
-    printf "        p_email_address           => 'dummy',\n" >> upd_apex.sql
+    printf "        p_email_address           => 'dummy@oracle.com',\n" >> upd_apex.sql
     printf "        p_default_schema          => '${schema}',\n" >> upd_apex.sql
     printf "        p_allow_access_to_schemas => '${schema}',\n" >> upd_apex.sql
     printf "        p_web_password            => '${pwd}',\n" >> upd_apex.sql
@@ -98,6 +98,7 @@ fi
 
 if [ -n "${application_id}" ]; then
     if [ -f "f${application_id}.xml" ]; then
+        echo "Copying application ${application_id} to ${schema}."
         printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
         sql /nolog @./upd_apex.sql
         rm -f upd_apex.sql
