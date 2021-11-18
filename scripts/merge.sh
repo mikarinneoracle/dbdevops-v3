@@ -16,6 +16,8 @@ printf "\n"
  
 read -p "Apex app id (optional): " application_id
 
+read -p "Copy tables data (Y to copy): " answer
+
 if [ ! -d "../dbdevops" ]; then
     mkdir ../dbdevops
 fi
@@ -33,16 +35,18 @@ else
     echo "controller.xml not found. Not copied to ${prod_instance_name}." >> upd.sql
 fi
 
-if [ -f "data.xml" ]; then
-   printf "lb update -changelog data.xml\n" >> upd.sql
-fi
-
-for filename in data*.xml; do
-    [ -e "$filename" ] || continue
-    if [ $filename != "data.xml" ]; then
-       printf "lb update -changelog ${filename}\n" >> upd.sql
+if [ "${answer}" == "Y" ]; then
+    if [ -f "data.xml" ]; then
+       printf "lb update -changelog data.xml\n" >> upd.sql
     fi
-done
+
+    for filename in data*.xml; do
+        [ -e "$filename" ] || continue
+        if [ $filename != "data.xml" ]; then
+           printf "lb update -changelog ${filename}\n" >> upd.sql
+        fi
+    done
+fi
 
 printf "\ntables\nexit" >> upd.sql
 
