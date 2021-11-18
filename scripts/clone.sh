@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export $(grep -v '^#' settings.env | xargs -d '\n')
 
 export name=$prod_instance_name

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd ../dbdevops
 git rm -f *.xml
 git rm -rf index

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export $(grep -v '^#' settings.env | xargs -d '\n')
 
 read -p "Task ID: " task_id
@@ -39,7 +41,8 @@ terraform init > tf-init.out
 echo "*** destroy any previous installs with a task id ${task_id} ***"
 terraform destroy -auto-approve > tf_destroy.out
 tail -2 tf_destroy.out
-git push origin --delete $task_id-task
+git push origin --delete $task_id-task > delete.out
+rm -f delete.out
 
 echo "*** LAUNCHES A DEV INSTANCE Dev${task_id} FROM REPO AND CREATES FEATURE BRANCH ${task_id}-task ***"
 terraform apply -auto-approve > tf.out

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 read -p "Tenancy OCID: " tenancy
 
 read -p "Compartment OCID: " compartment
