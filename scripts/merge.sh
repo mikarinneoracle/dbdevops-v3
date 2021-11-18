@@ -40,7 +40,7 @@ fi
 
 for filename in data*.xml; do
     [ -e "$filename" ] || continue
-    if [-n "data.xml"]; then
+    if [ $filename != "data.xml" ]; then
        printf "lb update -changelog ${filename}\n" >> upd.sql
     fi
 done
