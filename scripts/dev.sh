@@ -25,6 +25,9 @@ fi
 
 cd ../terraform
 
+rm -rf .terraform
+rm -rf .terraform.lock.hcl
+
 export TF_VAR_tenancy_ocid=$tenancy_ocid
 export TF_VAR_compartment_ocid=$compartment_ocid
 export TF_VAR_dev_db_pwd=$pwd
