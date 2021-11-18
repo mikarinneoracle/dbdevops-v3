@@ -99,9 +99,20 @@ fi
 if [ -n "${application_id}" ]; then
     if [ -f "f${application_id}.xml" ]; then
         echo "Copying application ${application_id} to ${schema}."
-        printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
+        printf "declare\nl_workspace_id number;\nbegin\n" > upd_apex_privs.sql;
+        printf "l_workspace_id := apex_util.find_security_group_id (p_workspace => 'WORKSPACE_NAME');\n" >> upd_apex_privs.sql;
+        printf "apex_util.set_security_group_id (p_security_group_id => l_workspace_id);\n" >> upd_apex_privs.sql;
+        printf "APEX_UTIL.PAUSE(2);\n" >> upd_apex_privs.sql;
+        printf "end;\n/\n" >> upd_apex_privs.sql;
+
+        printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\n@upd_apex_privs.sql\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
+        
+        cat upd_apex_privs.sql
+        cat upd_apex.sql
+        
         sql /nolog @./upd_apex.sql
         rm -f upd_apex.sql
+        rm -f upd_apex_privs.sql
     else
         echo "${application_id} not found. Not copied to Dev${task_id} ${schema}."
     fi
