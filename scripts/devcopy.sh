@@ -85,7 +85,6 @@ if [ -n "${wsname}" ]; then
     printf "        p_allow_access_to_schemas => '${schema}',\n" >> upd_apex.sql
     printf "        p_web_password            => '${pwd}',\n" >> upd_apex.sql
     printf "        p_developer_privs         => 'ADMIN:CREATE:DATA_LOADER:EDIT:HELP:MONITOR:SQL',\n" >> upd_apex.sql
-    printf "        p_change_password_on_first_use => 'n',\n" >> upd_apex.sql
     printf "        p_allow_app_building_yn   => 'y',\n" >> upd_apex.sql
     printf "        p_allow_sql_workshop_yn   => 'y',\n" >> upd_apex.sql
     printf "        p_allow_websheet_dev_yn   => 'y',\n" >> upd_apex.sql
@@ -107,9 +106,6 @@ if [ -n "${application_id}" ]; then
         printf "end;\n/\n" >> upd_apex_privs.sql;
 
         printf "set cloudconfig ./wallet-${task_id}.zip\nconn ${schema}/${pwd}@dev${task_id}_high\n@upd_apex_privs.sql\nlb update -changelog f${application_id}.xml\nexit" > upd_apex.sql
-        
-        cat upd_apex_privs.sql
-        cat upd_apex.sql
         
         sql /nolog @./upd_apex.sql
         rm -f upd_apex.sql
