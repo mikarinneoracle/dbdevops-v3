@@ -47,8 +47,6 @@ done
 
 printf "\ntables\nexit" >> upd.sql
 
-cat upd.sql
-
 sql /nolog @./upd.sql
 rm -f upd.sql
 
