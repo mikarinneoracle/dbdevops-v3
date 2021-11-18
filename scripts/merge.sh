@@ -34,9 +34,15 @@ else
     echo "controller.xml not found. Not copied to ${prod_instance_name}." >> upd.sql
 fi
 
+if [ -f "data.xml" ]; then
+   printf "lb update -changelog data.xml\n" >> upd.sql
+fi
+
 for filename in data*.xml; do
     [ -e "$filename" ] || continue
-    printf "lb update -changelog ${filename}\n" >> upd.sql
+    if [-n "data.xml"]; then
+       printf "lb update -changelog ${filename}\n" >> upd.sql
+    fi
 done
 
 printf "\ntables\nexit" >> upd.sql
