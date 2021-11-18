@@ -31,7 +31,7 @@ fi
 cd ../dbdevops
 
 export timestamp=$(($(date +%s%N)/1000000))
-wget $prod_db_wallet_preauth -O wallet.zip
+wget $prod_db_wallet_preauth -q -O wallet.zip
 
 git checkout -b $timestamp-copy-prod
 

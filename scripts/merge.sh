@@ -22,7 +22,6 @@ fi
 cd ../dbdevops
 
 wget $prod_db_wallet_preauth -q -O wallet.zip
-rm -f wget.out
 
 echo "*** COPY REPO MASTER TO ${name} ***"
 
