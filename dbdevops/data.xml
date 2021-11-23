@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="opc (generated)" id="1637665312826-1">
+        <insert tableName="PHONEBOOK">
+            <column name="ID" valueNumeric="6"/>
+            <column name="NAME" value="Daniel Ivanescu"/>
+            <column name="MOBILE" value="8347835738538587935"/>
+        </insert>
+        <insert tableName="PHONEBOOK">
+            <column name="ID" valueNumeric="1"/>
+            <column name="NAME" value="Mari"/>
+            <column name="MOBILE" value="0400346632"/>
+        </insert>
+        <insert tableName="PHONEBOOK">
+            <column name="ID" valueNumeric="2"/>
+            <column name="NAME" value="kolmas"/>
+            <column name="MOBILE" value="346763774734736"/>
+        </insert>
+        <insert tableName="PHONEBOOK">
+            <column name="ID" valueNumeric="3"/>
+            <column name="NAME" value="heiheisdkkdsj"/>
+            <column name="MOBILE" value="7367467364374376"/>
+        </insert>
+        <insert tableName="PHONEBOOK">
+            <column name="ID" valueNumeric="5"/>
+            <column name="NAME" value="dwdwdwd"/>
+            <column name="MOBILE" value="4344334434"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
