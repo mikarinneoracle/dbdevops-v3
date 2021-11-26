@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="fddfd4609d76b831bc587b01e63bfed31576505b" author="(MIKA)-Generated" failOnError="false"    >
+	<changeSet id="6b68ab8fa552a4834245a7f5c380c8ba84423d84" author="(MIKA)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="PHONEBOOK" objectType="TABLE" ownerName="MIKA"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -27,6 +27,12 @@
             <NAME>MOBILE</NAME>
             <DATATYPE>VARCHAR2</DATATYPE>
             <LENGTH>50</LENGTH>
+            <COLLATE_NAME>USING_NLS_COMP</COLLATE_NAME>
+         </COL_LIST_ITEM>
+         <COL_LIST_ITEM>
+            <NAME>COUNTRY</NAME>
+            <DATATYPE>VARCHAR2</DATATYPE>
+            <LENGTH>60</LENGTH>
             <COLLATE_NAME>USING_NLS_COMP</COLLATE_NAME>
          </COL_LIST_ITEM>
       </COL_LIST>
