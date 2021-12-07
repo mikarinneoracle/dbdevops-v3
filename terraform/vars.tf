@@ -4,7 +4,8 @@ variable "tenancy_ocid" {
 }
 
 variable "region" {
-  default = "eu-frankfurt-1" 
+  type        = string
+  description = "Region name"
 }
 
 variable "compartment_ocid" {
