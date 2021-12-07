@@ -49,7 +49,10 @@ tail -2 tf_destroy.out
 git push origin --quiet --delete $task_id-task
 
 echo "*** LAUNCHES A DEV INSTANCE Dev${task_id} FROM REPO AND CREATES FEATURE BRANCH ${task_id}-task ***"
-terraform apply -auto-approve > tf.out
+terraform apply -auto-approve # > tf.out
+
+exit
+
 tail -2 tf.out
 export url="$(grep "autonomous_database_wallet_preauth =" tf.out | grep -o '".*"' | tr -d '"')"
 mv copy_main main.tf
