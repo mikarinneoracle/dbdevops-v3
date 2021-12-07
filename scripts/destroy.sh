@@ -13,7 +13,9 @@ fi
 cd ../terraform
 
 export TF_VAR_tenancy_ocid=$tenancy_ocid
+export TF_VAR_region=$region
 export TF_VAR_compartment_ocid=$compartment_ocid
+export TF_VAR_dev_db_name=$dev_db_name
 export TF_VAR_dev_db_pwd=dummy
 export TF_VAR_task_id=$task_id
 
