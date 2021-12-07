@@ -8,6 +8,8 @@ read -p "Compartment OCID: " compartment
 
 read -p "Production database instance name: " name
 
+read -p "Development database instance name prefix (e.g. Dev): " dev_name
+
 read -p "${name} database wallet preauth (in object storage): " preauth
 
 read -p "Terraform statefiles bucket (in object storage with read/write access): " bucket
@@ -21,6 +23,6 @@ if [ -f "settings.env" ]; then
     cp settings.env settings.env.backup 
 fi
 
-printf "prod_instance_name=${name}\nprod_db_wallet_preauth=${preauth}\ntenancy_ocid=${tenancy}\nregion=${region}\ncompartment_ocid=${compartment}\nos_bucket_tf=${bucket}\n" > settings.env
+printf "prod_instance_name=${name}\nprod_db_wallet_preauth=${preauth}\ntenancy_ocid=${tenancy}\nregion=${region}\ncompartment_ocid=${compartment}\nos_bucket_tf=${bucket}\npdev_db_name=${dev_name}\n" > settings.env
 
 echo "Config saved to settings.env"
