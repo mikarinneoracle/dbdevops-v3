@@ -22,6 +22,8 @@ read -p "Apex workspace to be created (optional): " wsname
 
 read -p "Apex app id to be copied (optional): " application_id
 
+read -p "Copy tables data (Y to copy): " tables_answer
+
 if [ ! -d "../dbdevops" ]; then
     mkdir ../dbdevops
 fi
@@ -47,11 +49,20 @@ if [ -f "controller.xml" ]; then
 else
     echo "Controller.xml not found. Schema not copied to Dev${task_id} ${schema}."
 fi
-if [ -f "data.xml" ]; then
-   printf "lb update -changelog data.xml\n" >> upd.sql
-else
-    echo "Data.xml not found. Data not copied to Dev${task_id} ${schema}."
+
+if [ "${tables_answer}" == "Y" ]; then
+    if [ -f "data.xml" ]; then
+           printf "lb update -changelog data.xml\n" >> upd.sql
+    fi
+
+    for filename in data*.xml; do
+        [ -e "$filename" ] || continue
+        if [ $filename != "data.xml" ]; then
+           printf "lb update -changelog ${filename}\n" >> upd.sql
+        fi
+    done
 fi
+
 printf "\ntables\nexit" >> upd.sql
 
 sql /nolog @./upd.sql
