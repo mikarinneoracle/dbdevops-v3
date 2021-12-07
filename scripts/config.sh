@@ -2,8 +2,9 @@
 
 read -p "Tenancy OCID: " tenancy
 
-read -p "Compartment OCID: " compartment
+read -p "Region name: " region
 
+read -p "Compartment OCID: " compartment
 
 read -p "Production database instance name: " name
 
@@ -20,6 +21,6 @@ if [ -f "settings.env" ]; then
     cp settings.env settings.env.backup 
 fi
 
-printf "prod_instance_name=${name}\nprod_db_wallet_preauth=${preauth}\ntenancy_ocid=${tenancy}\ncompartment_ocid=${compartment}\nos_bucket_tf=${bucket}\n" > settings.env
+printf "prod_instance_name=${name}\nprod_db_wallet_preauth=${preauth}\ntenancy_ocid=${tenancy}\nregion=${region}\ncompartment_ocid=${compartment}\nos_bucket_tf=${bucket}\n" > settings.env
 
 echo "Config saved to settings.env"
