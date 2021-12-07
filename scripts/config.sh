@@ -23,6 +23,6 @@ if [ -f "settings.env" ]; then
     cp settings.env settings.env.backup 
 fi
 
-printf "prod_instance_name=${name}\nprod_db_wallet_preauth=${preauth}\ntenancy_ocid=${tenancy}\nregion=${region}\ncompartment_ocid=${compartment}\nos_bucket_tf=${bucket}\npdev_db_name=${dev_name}\n" > settings.env
+printf "prod_instance_name=${name}\nprod_db_wallet_preauth=${preauth}\ntenancy_ocid=${tenancy}\nregion=${region}\ncompartment_ocid=${compartment}\nos_bucket_tf=${bucket}\ndev_db_name=${dev_name}\n" > settings.env
 
 echo "Config saved to settings.env"
