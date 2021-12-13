@@ -45,8 +45,13 @@ terraform init > tf-init.out
 
 echo "*** destroy any previous installs with a task id ${task_id} ***"
 terraform destroy -auto-approve > tf_destroy.out
-tail -2 tf_destroy.out
-git push origin --quiet --delete $task_id-task
+destroy=$(cat tf_destroy.out | grep "Destroy complete! Resources: 0 destroyed.")
+echo $destroy
+if [ "$destroy" ]; then
+else
+    echo "deleteting branch $task_id-task"
+    git push origin --quiet --delete $task_id-task 
+fi
 
 echo "*** LAUNCHES A DEV INSTANCE Dev${task_id} FROM REPO AND CREATES FEATURE BRANCH ${task_id}-task ***"
 terraform apply -auto-approve > tf.out
