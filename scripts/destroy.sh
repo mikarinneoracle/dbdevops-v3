@@ -40,10 +40,13 @@ cd ../dbdevops
 
 # This does not work with protected master branches! 
 # Alternative option is to keep the obsolete wallets and delete with a batch periodically
-git rm wallet-$task_id.zip
-git commit -m "wallet for dev task ${task_id} removed"
-git push origin master
-
-git push origin --delete $task_id-task
 
 git checkout master
+
+if [ ! -f "wallet-$task_id" ]; then
+    git rm wallet-$task_id.zip
+    git commit -m "wallet for dev task ${task_id} removed"
+    git push origin master
+fi
+
+git push origin --delete $task_id-task
