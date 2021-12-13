@@ -48,6 +48,7 @@ terraform destroy -auto-approve > tf_destroy.out
 destroy=$(cat tf_destroy.out | grep "Destroy complete! Resources: 0 destroyed.")
 echo $destroy
 if [ "$destroy" ]; then
+    echo "skipping delete branch $task_id-task"
 else
     echo "deleteting branch $task_id-task"
     git push origin --quiet --delete $task_id-task 
