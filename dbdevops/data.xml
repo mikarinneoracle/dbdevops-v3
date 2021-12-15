@@ -1,0 +1,1610 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="opc (generated)" id="1639583176191-1">
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="1"/>
+            <column name="PROJECT" value="Maintain Support Systems"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:48.993062"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:48.993667"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="2"/>
+            <column name="PROJECT" value="Load Software"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:48.99634"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:48.996461"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="3"/>
+            <column name="PROJECT" value="Email Integration"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:48.998081"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:48.998187"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="4"/>
+            <column name="PROJECT" value="Documentation"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:48.999597"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:48.999719"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="5"/>
+            <column name="PROJECT" value="Training"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.001201"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.001312"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="6"/>
+            <column name="PROJECT" value="Bug Tracker"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.002754"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.002897"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="7"/>
+            <column name="PROJECT" value="Migrate Old Systems"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.004331"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.004436"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="8"/>
+            <column name="PROJECT" value="Software Projects Tracking"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.005905"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.006016"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="9"/>
+            <column name="PROJECT" value="Public Website"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.007405"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.00751"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="10"/>
+            <column name="PROJECT" value="Early Adopter Release"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.008928"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.009039"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="11"/>
+            <column name="PROJECT" value="Environment Configuration"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.010469"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.010579"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="12"/>
+            <column name="PROJECT" value="Customer Satisfaction Survey"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.012024"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.01213"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="13"/>
+            <column name="PROJECT" value="Convert Excel Spreadsheet"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.013574"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.013684"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_PROJECTS">
+            <column name="ID" valueNumeric="14"/>
+            <column name="PROJECT" value="Upgrade Equipment"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="1"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.015111"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.015216"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+    </changeSet>
+    <changeSet author="opc (generated)" id="1639583176191-2">
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="74"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Decommission servers"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-13T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-04-12T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Al Bines"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.036154"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.295327"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="75"/>
+            <column name="PROJECT" valueNumeric="6"/>
+            <column name="PARENT_TASK" valueNumeric="18"/>
+            <column name="TASK_NAME" value="Measure effectiveness of improved QA"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-13T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-12T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Myra Sutcliff"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="1500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.038467"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.295523"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="76"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK" valueNumeric="33"/>
+            <column name="TASK_NAME" value="Response to Customer Feedback"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-13T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-05-07T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Russ Saunders"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="6000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.04029"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.295628"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="77"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK" valueNumeric="33"/>
+            <column name="TASK_NAME" value="User acceptance testing"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-28T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-05-02T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Russ Saunders"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="2500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.042068"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.295715"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="78"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK" valueNumeric="79"/>
+            <column name="TASK_NAME" value="End-user Training"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-03-02T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-05-14T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Myra Sutcliff"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="2500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.043775"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.295802"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="79"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK" valueNumeric="32"/>
+            <column name="TASK_NAME" value="Rollout sample applications"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-05-05T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-05-16T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.04556"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.295922"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="72"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK" valueNumeric="67"/>
+            <column name="TASK_NAME" value="Installation"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-15T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-14T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="1500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.047361"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296001"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="73"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK" valueNumeric="67"/>
+            <column name="TASK_NAME" value="Notify users"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-02-16T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-19T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="200"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.049072"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296074"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="34"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK" valueNumeric="32"/>
+            <column name="TASK_NAME" value="Plan production release schedule"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-03T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-03T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.050918"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296148"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="37"/>
+            <column name="PROJECT" valueNumeric="12"/>
+            <column name="PARENT_TASK" valueNumeric="38"/>
+            <column name="TASK_NAME" value="Complete questionnaire"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-29T19:26:49"/>
+            <column name="END_DATE" valueDate="2020-12-13T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Irene Jones"/>
+            <column name="COST" valueNumeric="1200"/>
+            <column name="BUDGET" valueNumeric="800"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.052723"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29622"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="59"/>
+            <column name="PROJECT" valueNumeric="11"/>
+            <column name="PARENT_TASK" valueNumeric="61"/>
+            <column name="TASK_NAME" value="Select servers for Development, Test, Production"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-15T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-20T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="James Cassidy"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="600"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.054507"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296292"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="3"/>
+            <column name="PROJECT" valueNumeric="1"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="HR Support Systems"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-13T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-22T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Al Bines"/>
+            <column name="COST" valueNumeric="300"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.056282"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296364"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="1"/>
+            <column name="PROJECT" valueNumeric="1"/>
+            <column name="PARENT_TASK" valueNumeric="3"/>
+            <column name="TASK_NAME" value="HR software upgrades"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-13T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-08T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="8000"/>
+            <column name="BUDGET" valueNumeric="7000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.058014"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296435"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="2"/>
+            <column name="PROJECT" valueNumeric="1"/>
+            <column name="PARENT_TASK" valueNumeric="3"/>
+            <column name="TASK_NAME" value="Arrange for vacation coverage"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-13T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-12T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Russ Sanders"/>
+            <column name="COST" valueNumeric="9500"/>
+            <column name="BUDGET" valueNumeric="7000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.059704"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296507"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="4"/>
+            <column name="PROJECT" valueNumeric="3"/>
+            <column name="PARENT_TASK" valueNumeric="44"/>
+            <column name="TASK_NAME" value="Complete plan"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-20T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-25T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="3000"/>
+            <column name="BUDGET" valueNumeric="1500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.061453"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296609"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="5"/>
+            <column name="PROJECT" valueNumeric="3"/>
+            <column name="PARENT_TASK" valueNumeric="44"/>
+            <column name="TASK_NAME" value="Check software licenses"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-23T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-24T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="200"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.063264"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296688"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="6"/>
+            <column name="PROJECT" valueNumeric="5"/>
+            <column name="PARENT_TASK" valueNumeric="36"/>
+            <column name="TASK_NAME" value="Create training workspace"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-12T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-19T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="James Cassidy"/>
+            <column name="COST" valueNumeric="500"/>
+            <column name="BUDGET" valueNumeric="700"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.065098"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29676"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="7"/>
+            <column name="PROJECT" valueNumeric="5"/>
+            <column name="PARENT_TASK" valueNumeric="36"/>
+            <column name="TASK_NAME" value="Publish links to self-study courses"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-12T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-12T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.06704"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.296893"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="8"/>
+            <column name="PROJECT" valueNumeric="2"/>
+            <column name="PARENT_TASK" valueNumeric="49"/>
+            <column name="TASK_NAME" value="Identify point solutions required"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-14T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-16T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="300"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.068721"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297011"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="9"/>
+            <column name="PROJECT" valueNumeric="2"/>
+            <column name="PARENT_TASK" valueNumeric="49"/>
+            <column name="TASK_NAME" value="Install in development"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-18T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-18T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.070416"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297093"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="15"/>
+            <column name="PROJECT" valueNumeric="4"/>
+            <column name="PARENT_TASK" valueNumeric="17"/>
+            <column name="TASK_NAME" value="Identify owners"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-31T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-03T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Hank Davis"/>
+            <column name="COST" valueNumeric="250"/>
+            <column name="BUDGET" valueNumeric="300"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.072196"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297182"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="16"/>
+            <column name="PROJECT" valueNumeric="4"/>
+            <column name="PARENT_TASK" valueNumeric="17"/>
+            <column name="TASK_NAME" value="Initial Draft Review"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-04T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-04T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Hank Davis"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.073891"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297256"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="17"/>
+            <column name="PROJECT" valueNumeric="4"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Monitor Review Comments"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-04T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-12T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Hank Davis"/>
+            <column name="COST" valueNumeric="450"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.075708"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29734"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="18"/>
+            <column name="PROJECT" valueNumeric="6"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Implement bug tracking software"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-27T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-27T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Myra Sutcliff"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.077488"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297414"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="19"/>
+            <column name="PROJECT" valueNumeric="6"/>
+            <column name="PARENT_TASK" valueNumeric="18"/>
+            <column name="TASK_NAME" value="Review automated testing tools"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-28T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-26T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Myra Sutcliff"/>
+            <column name="COST" valueNumeric="2750"/>
+            <column name="BUDGET" valueNumeric="1500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.079732"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297487"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="20"/>
+            <column name="PROJECT" valueNumeric="7"/>
+            <column name="PARENT_TASK" valueNumeric="53"/>
+            <column name="TASK_NAME" value="Identify pilot applications"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-22T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-27T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="300"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.081425"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29756"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="21"/>
+            <column name="PROJECT" valueNumeric="7"/>
+            <column name="PARENT_TASK" valueNumeric="53"/>
+            <column name="TASK_NAME" value="Migrate pilot applications to "/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-01T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-06T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="500"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.083241"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297634"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="22"/>
+            <column name="PROJECT" valueNumeric="8"/>
+            <column name="PARENT_TASK" valueNumeric="28"/>
+            <column name="TASK_NAME" value="Customize Software Projects software"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-11-27T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-01-01T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Tom Suess"/>
+            <column name="COST" valueNumeric="600"/>
+            <column name="BUDGET" valueNumeric="1000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.084978"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297708"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="23"/>
+            <column name="PROJECT" valueNumeric="7"/>
+            <column name="PARENT_TASK" valueNumeric="53"/>
+            <column name="TASK_NAME" value="Post-migration review"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-12T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-12T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.086728"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297782"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="24"/>
+            <column name="PROJECT" valueNumeric="7"/>
+            <column name="PARENT_TASK" valueNumeric="23"/>
+            <column name="TASK_NAME" value="User acceptance testing"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-14T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-15T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="600"/>
+            <column name="BUDGET" valueNumeric="200"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.088578"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297888"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="25"/>
+            <column name="PROJECT" valueNumeric="8"/>
+            <column name="PARENT_TASK" valueNumeric="28"/>
+            <column name="TASK_NAME" value="Enter base data (Projects, Milestones, etc.)"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-21T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-22T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Tom Suess"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="200"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.090355"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.297977"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="26"/>
+            <column name="PROJECT" valueNumeric="8"/>
+            <column name="PARENT_TASK" valueNumeric="28"/>
+            <column name="TASK_NAME" value="Load current tasks and enhancements"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-23T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-27T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Tom Suess"/>
+            <column name="COST" valueNumeric="400"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.09212"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29806"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="27"/>
+            <column name="PROJECT" valueNumeric="6"/>
+            <column name="PARENT_TASK" valueNumeric="18"/>
+            <column name="TASK_NAME" value="Document quality assurance procedures"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-27T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-31T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Myra Sutcliff"/>
+            <column name="COST" valueNumeric="3500"/>
+            <column name="BUDGET" valueNumeric="4000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.093993"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298137"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="28"/>
+            <column name="PROJECT" valueNumeric="8"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Conduct project kickoff meeting"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-16T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-16T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.09588"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29822"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="29"/>
+            <column name="PROJECT" valueNumeric="9"/>
+            <column name="PARENT_TASK" valueNumeric="40"/>
+            <column name="TASK_NAME" value="Determine host server"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-17T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-18T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Tiger Scott"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="200"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.09777"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298301"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="30"/>
+            <column name="PROJECT" valueNumeric="9"/>
+            <column name="PARENT_TASK" valueNumeric="40"/>
+            <column name="TASK_NAME" value="Check software licenses"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-18T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-18T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Tom Suess"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.09975"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298375"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="31"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK" valueNumeric="33"/>
+            <column name="TASK_NAME" value="Identify pilot users"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-16T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-11-17T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Scott Spencer"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="200"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.101862"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298458"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="32"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK" valueNumeric="33"/>
+            <column name="TASK_NAME" value="Software Deliverable"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-18T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-01T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Scott Spencer"/>
+            <column name="COST" valueNumeric="400"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.10387"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298538"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="33"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Early Adopter Release"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-02T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-02T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.105747"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298613"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="35"/>
+            <column name="PROJECT" valueNumeric="11"/>
+            <column name="PARENT_TASK" valueNumeric="61"/>
+            <column name="TASK_NAME" value="Determine midtier configuration(s)"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-14T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-14T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="James Cassidy"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.107618"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298694"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="36"/>
+            <column name="PROJECT" valueNumeric="5"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Manage Training Activities"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-09T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-01-15T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="1000"/>
+            <column name="BUDGET" valueNumeric="2000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.109548"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298838"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="38"/>
+            <column name="PROJECT" valueNumeric="12"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Review feedback"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-21T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-27T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Irene Jones"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="400"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.111408"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.298939"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="39"/>
+            <column name="PROJECT" valueNumeric="12"/>
+            <column name="PARENT_TASK" valueNumeric="38"/>
+            <column name="TASK_NAME" value="Plan rollout schedule"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-28T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-01-05T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Irene Jones"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="750"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.113259"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.299014"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="40"/>
+            <column name="PROJECT" valueNumeric="9"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Plan rollout schedule"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-21T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-14T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Al Bines"/>
+            <column name="COST" valueNumeric="300"/>
+            <column name="BUDGET" valueNumeric="1000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.115169"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.299087"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="41"/>
+            <column name="PROJECT" valueNumeric="9"/>
+            <column name="PARENT_TASK" valueNumeric="40"/>
+            <column name="TASK_NAME" value="Develop web pages"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-22T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-01-27T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Tiger Scott"/>
+            <column name="COST" valueNumeric="800"/>
+            <column name="BUDGET" valueNumeric="2000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.117107"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.299158"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="42"/>
+            <column name="PROJECT" valueNumeric="9"/>
+            <column name="PARENT_TASK" valueNumeric="40"/>
+            <column name="TASK_NAME" value="Purchase additional software licenses, if needed"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-29T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-01-29T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Tom Suess"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.1189"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.299228"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="43"/>
+            <column name="PROJECT" valueNumeric="1"/>
+            <column name="PARENT_TASK" valueNumeric="3"/>
+            <column name="TASK_NAME" value="Investigate new Virus Protection software"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-10T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-25T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="1700"/>
+            <column name="BUDGET" valueNumeric="1500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.120689"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.2993"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="44"/>
+            <column name="PROJECT" valueNumeric="3"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Get RFPs for new server"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-24T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-15T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="2000"/>
+            <column name="BUDGET" valueNumeric="1000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.122589"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29937"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="45"/>
+            <column name="PROJECT" valueNumeric="13"/>
+            <column name="PARENT_TASK" valueNumeric="46"/>
+            <column name="TASK_NAME" value="Collect mission-critical spreadsheets"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-26T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-01-27T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="2500"/>
+            <column name="BUDGET" valueNumeric="4000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.124537"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29944"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="46"/>
+            <column name="PROJECT" valueNumeric="13"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Create  applications from spreadsheets"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-26T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-05-12T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="6000"/>
+            <column name="BUDGET" valueNumeric="10000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.126385"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.299509"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="47"/>
+            <column name="PROJECT" valueNumeric="13"/>
+            <column name="PARENT_TASK" valueNumeric="46"/>
+            <column name="TASK_NAME" value="Lock spreadsheets"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-26T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-05-12T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="1000"/>
+            <column name="BUDGET" valueNumeric="800"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.128236"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29958"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="48"/>
+            <column name="PROJECT" valueNumeric="13"/>
+            <column name="PARENT_TASK" valueNumeric="46"/>
+            <column name="TASK_NAME" value="Send links to previous spreadsheet owners"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-27T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-05-14T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="1000"/>
+            <column name="BUDGET" valueNumeric="1500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.130065"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29965"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="49"/>
+            <column name="PROJECT" valueNumeric="2"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Customize solutions"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-19T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-11T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="1500"/>
+            <column name="BUDGET" valueNumeric="4000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.131954"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.299739"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="50"/>
+            <column name="PROJECT" valueNumeric="2"/>
+            <column name="PARENT_TASK" valueNumeric="49"/>
+            <column name="TASK_NAME" value="Train developers / users"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-22T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-03-07T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="8000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.133931"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29984"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="51"/>
+            <column name="PROJECT" valueNumeric="2"/>
+            <column name="PARENT_TASK" valueNumeric="49"/>
+            <column name="TASK_NAME" value="Implement in Production"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-08T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-04-15T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="1500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.135673"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.29993"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="52"/>
+            <column name="PROJECT" valueNumeric="7"/>
+            <column name="PARENT_TASK" valueNumeric="53"/>
+            <column name="TASK_NAME" value="Migrate applications"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-11-26T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-01T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="1000"/>
+            <column name="BUDGET" valueNumeric="8000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.137474"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300005"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="53"/>
+            <column name="PROJECT" valueNumeric="7"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Plan migration schedule"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-03T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-13T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="1500"/>
+            <column name="BUDGET" valueNumeric="6000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.139224"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300076"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="54"/>
+            <column name="PROJECT" valueNumeric="10"/>
+            <column name="PARENT_TASK" valueNumeric="33"/>
+            <column name="TASK_NAME" value="Publish Feedback application"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-07T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-04-16T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="300"/>
+            <column name="BUDGET" valueNumeric="12000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.140936"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300146"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="55"/>
+            <column name="PROJECT" valueNumeric="6"/>
+            <column name="PARENT_TASK" valueNumeric="18"/>
+            <column name="TASK_NAME" value="Train developers on tracking bugs"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-01T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-20T19:26:49"/>
+            <column name="STATUS" value="On-Hold"/>
+            <column name="ASSIGNED_TO" value="Myra Sutcliff"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="2000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.142699"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300216"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="56"/>
+            <column name="PROJECT" valueNumeric="7"/>
+            <column name="PARENT_TASK" valueNumeric="53"/>
+            <column name="TASK_NAME" value="End-user Training"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-09T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-03T19:26:49"/>
+            <column name="STATUS" value="Open"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="2000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.14503"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300286"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="57"/>
+            <column name="PROJECT" valueNumeric="11"/>
+            <column name="PARENT_TASK" valueNumeric="61"/>
+            <column name="TASK_NAME" value="Identify server requirements"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-13T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-14T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="200"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.146747"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300356"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="58"/>
+            <column name="PROJECT" valueNumeric="11"/>
+            <column name="PARENT_TASK" valueNumeric="61"/>
+            <column name="TASK_NAME" value="Specify security authentication scheme(s)"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-15T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-17T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="300"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.148533"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300425"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="60"/>
+            <column name="PROJECT" valueNumeric="11"/>
+            <column name="PARENT_TASK" valueNumeric="61"/>
+            <column name="TASK_NAME" value="Create pilot workspace"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-22T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-22T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.150355"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300496"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="61"/>
+            <column name="PROJECT" valueNumeric="11"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Configure Workspace provisioning"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-22T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-22T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="200"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.152169"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300566"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="62"/>
+            <column name="PROJECT" valueNumeric="11"/>
+            <column name="PARENT_TASK" valueNumeric="57"/>
+            <column name="TASK_NAME" value="Run installation"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-10-23T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-10-23T19:26:49"/>
+            <column name="STATUS" value="Closed"/>
+            <column name="ASSIGNED_TO" value="James Cassidy"/>
+            <column name="COST" valueNumeric="100"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.153905"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300636"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="64"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK" valueNumeric="67"/>
+            <column name="TASK_NAME" value="Obtain equipment specifications"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-15T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-18T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="James Cassidy"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.15571"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300705"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="65"/>
+            <column name="PROJECT" valueNumeric="3"/>
+            <column name="PARENT_TASK" valueNumeric="44"/>
+            <column name="TASK_NAME" value="Purchase backup server"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-24T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-01-19T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="3000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.157465"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300774"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="66"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK" valueNumeric="67"/>
+            <column name="TASK_NAME" value="Identify integration points"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-20T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-01-09T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="2000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.159225"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300872"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="67"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK"/>
+            <column name="TASK_NAME" value="Decommission machines"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2021-12-20T19:26:49"/>
+            <column name="END_DATE" valueDate="2021-12-20T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Scott Spencer"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="100"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.161134"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.300978"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="68"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK" valueNumeric="67"/>
+            <column name="TASK_NAME" value="Map data usage"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-01T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-02-13T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Mark Nile"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="8000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.163018"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.301056"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="69"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK" valueNumeric="67"/>
+            <column name="TASK_NAME" value="Purchase new machines"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-02-05T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-03-02T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="2500"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.164795"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.301127"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="70"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK" valueNumeric="67"/>
+            <column name="TASK_NAME" value="Import data"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-02-06T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-03-05T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="John Watson"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="1000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.166601"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.301197"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+        <insert tableName="EBA_UT_CHART_TASKS">
+            <column name="ID" valueNumeric="71"/>
+            <column name="PROJECT" valueNumeric="14"/>
+            <column name="PARENT_TASK" valueNumeric="67"/>
+            <column name="TASK_NAME" value="Convert processes"/>
+            <column name="ROW_VERSION_NUMBER" valueNumeric="2"/>
+            <column name="START_DATE" valueDate="2022-01-14T19:26:49"/>
+            <column name="END_DATE" valueDate="2022-03-14T19:26:49"/>
+            <column name="STATUS" value="Pending"/>
+            <column name="ASSIGNED_TO" value="Pam King"/>
+            <column name="COST" valueNumeric="0"/>
+            <column name="BUDGET" valueNumeric="3000"/>
+            <column name="CREATED" valueDate="2021-12-13T19:26:49.168448"/>
+            <column name="CREATED_BY" value="TURNING_POINT"/>
+            <column name="UPDATED" valueDate="2021-12-13T19:26:49.301266"/>
+            <column name="UPDATED_BY" value="TURNING_POINT"/>
+        </insert>
+    </changeSet>
+    <changeSet author="opc (generated)" id="1639583176191-3">
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="1"/>
+            <column name="CATEGORY" value="conference"/>
+            <column name="TITLE" value="Accessibility"/>
+            <column name="SUBTITLE" value="Creating Accessible Apps"/>
+            <column name="BODY" value="This conference breaks down all aspects of creating accessible web applications. We focus on the latest World Wide Web Consortium (W3C) standards in sessions discussing tables, labels, forms, images, color contrast, links, page structure, screen reader testing, and Voluntary Product Accessibility Templates (VPATs). The conference starts at 8am  and ends at 4pm. Lunch will be served, with vegan options for those interested."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Tables&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Labels and Forms&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Images and Color Contrast&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Links and Page Structure&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Screen Reader Analyzation&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Voluntary Product Accessibility Templates (VPATs)&lt;/li&gt;&#10;&lt;li&gt;3pm-4pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-universal-access"/>
+            <column name="BADGE" value="200.00"/>
+            <column name="IMAGE_URL" value="img/adaptable.jpg"/>
+            <column name="START_DATE" valueDate="2021-12-23T08:00:00"/>
+            <column name="END_DATE" valueDate="2021-12-23T16:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="2"/>
+            <column name="CATEGORY" value="conference"/>
+            <column name="TITLE" value="Security"/>
+            <column name="SUBTITLE" value="Creating Secure Apps"/>
+            <column name="BODY" value="This conference discusses all aspects of securing/hardening a web application. You'll learn how to protect against Cross Side Scripting vulnerabilities and SQL Injection attacks. Other topics discussed are virus protection, VPNs and port sniffing, phishing and malware, and handling data breaches. The conference starts at 8am and ends at 4pm. Lunch will be served, with vegan options for those interested."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Cross Side Scripting&lt;/li&gt;&#10;&lt;li&gt;9am-10am: SQL Injection&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Virus Protection&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: VPNs and Port Sniffing&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Phishing and Malware&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Handling Data Breaches&lt;/li&gt;&#10;&lt;li&gt;3pm-4pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-lock"/>
+            <column name="BADGE" value="200.00"/>
+            <column name="IMAGE_URL" value="img/discovery.jpg"/>
+            <column name="START_DATE" valueDate="2022-01-02T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-01-02T16:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="3"/>
+            <column name="CATEGORY" value="conference"/>
+            <column name="TITLE" value="Responsive Design"/>
+            <column name="SUBTITLE" value="Creating Responsive Apps"/>
+            <column name="BODY" value="This conference discusses all aspects of making a web application responsive. We will discuss topics like responsive design, minimalism, parallax vs. infinite scrolling, cross-browser compatibility, typography, and CSS animations. The conference starts at 8am and ends at 4pm. Lunch will be served, with vegan options for those interested."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Responsive Design&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Minimalism&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Parallax vs. Infinite Scrolling&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Cross-Browser Compatibility&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Typography&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: CSS Animations&lt;/li&gt;&#10;&lt;li&gt;3pm-4pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-arrows-h"/>
+            <column name="BADGE" value="200.00"/>
+            <column name="IMAGE_URL" value="img/construction-and-engineering.jpg"/>
+            <column name="START_DATE" valueDate="2022-01-12T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-01-12T16:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="4"/>
+            <column name="CATEGORY" value="conference"/>
+            <column name="TITLE" value="Slack Integration"/>
+            <column name="SUBTITLE" value="Integrate Slack Into Your Apps"/>
+            <column name="BODY" value="This conference shows how to integrate Slack into your web application. We will discuss topics like the Slack API, channels, channel topics vs. descriptions, markdown, and third party vendor integration. The conference starts at 8am and ends at 3pm. Lunch will be served, with vegan options for those interested."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Slack API&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Channels&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Channel Topics vs. Descriptions&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Markdown&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: 3rd Party Vendor Integration&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-comment-o"/>
+            <column name="BADGE" value="200.00"/>
+            <column name="IMAGE_URL" value="img/diversity.jpg"/>
+            <column name="START_DATE" valueDate="2022-01-22T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-01-22T15:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="5"/>
+            <column name="CATEGORY" value="conference"/>
+            <column name="TITLE" value="Blockchain"/>
+            <column name="SUBTITLE" value="Understanding Blockchain"/>
+            <column name="BODY" value="This conference will cover high value payments, enhancements in transactions including IoT and Supply Chain Automation. Bring your own Laptop. The conference starts at 8am and ends at 5pm. Lunch will be provided. If you have special dietary requirements, please send an email to the organizers."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Introduction to Blockchain&lt;/li&gt;&#10;&lt;li&gt;9am-10am: High Value Payments&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Enhancements in Transactions&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Data and Finances&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Mobility and IoT&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Standards for Blockchain Adoption&lt;/li&gt;&#10;&lt;li&gt;3pm-4pm: Supply Chain Automation with Blockchain&lt;/li&gt;&#10;&lt;li&gt;4pm-5pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-cubes"/>
+            <column name="BADGE" value="300.00"/>
+            <column name="IMAGE_URL" value="img/blockchain.jpg"/>
+            <column name="START_DATE" valueDate="2022-02-01T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-02-01T17:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="6"/>
+            <column name="CATEGORY" value="conference"/>
+            <column name="TITLE" value="Localizations"/>
+            <column name="SUBTITLE" value="Preparing your app for a global audience"/>
+            <column name="BODY" value="This conference focuses on important considerations needed to ensure an application can reach a global audience, it covers the difference between automated and manual translations, User eXperience analysis, handling of sensitive data during translations, and some standards and definitions important for the target markets. Lunch will be at noon. It starts at 8 am and ends at 3 pm."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Global Audience Analysis&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Automated vs Manual Translations&lt;/li&gt;&#10;&lt;li&gt;10am-11am: UX Considerations&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Sensitive Data Translations&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Localization Standards and Definitions&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-language"/>
+            <column name="BADGE" value="140.00"/>
+            <column name="IMAGE_URL" value="img/best-in-class.jpg"/>
+            <column name="START_DATE" valueDate="2022-02-11T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-02-11T15:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="7"/>
+            <column name="CATEGORY" value="workshop"/>
+            <column name="TITLE" value="Big Data"/>
+            <column name="SUBTITLE" value="Performant Searching Against Data Warehouses"/>
+            <column name="BODY" value="This small workshop covers data volume management, its analysis, integration and visualization. It also encompases cost-effective solutions for our potential customers. It starts at 8 am and ends at 2 pm. Lunch is included just before the Q&amp;A."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Data Volume Management&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Analysis of Unstructured Data&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Data Integration and Visualization&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Cost-Effective Solutions&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-database-wrench"/>
+            <column name="BADGE" value="100.00"/>
+            <column name="IMAGE_URL" value="img/analyze.jpg"/>
+            <column name="START_DATE" valueDate="2021-12-28T08:00:00"/>
+            <column name="END_DATE" valueDate="2021-12-28T14:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="8"/>
+            <column name="CATEGORY" value="workshop"/>
+            <column name="TITLE" value="Cloud Services"/>
+            <column name="SUBTITLE" value="Which Cloud Service Fits Your Needs"/>
+            <column name="BODY" value="In this workshop we will cover protection of your data, containerized apps, shared block storage and cloud tiering when using Oracle Cloud Services. There is focus on optimizing work loads and usage analysis. It starts at 8 am and ends at 4 pm. Lunch is served at noon with vegan and meat options."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Data Protection&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Legacy to Containerized Apps&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Shared Block Storage&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Cloud Tiering&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Optimizing Work Loads&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Cloud Usage Analysis&lt;/li&gt;&#10;&lt;li&gt;3pm-4pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-cloud-new"/>
+            <column name="BADGE" value="240.00"/>
+            <column name="IMAGE_URL" value="img/emerging-tech.jpg"/>
+            <column name="START_DATE" valueDate="2022-01-07T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-01-07T16:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="9"/>
+            <column name="CATEGORY" value="workshop"/>
+            <column name="TITLE" value="Quantum Computing"/>
+            <column name="SUBTITLE" value="Storing Data in Qubits"/>
+            <column name="BODY" value="In this workshop, the topic of Quantum Computing as a strategy for the future development of applications and services is covered. It will include neural networks, advanced machine learning, natural language processing, quantum simulations and modern applications. It starts at 8 am and ends at 4 pm. Lunch will be served."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Introduction to Quantum Computing&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Neural Networks&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Advanced Machine Learning&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Natural Language Processing&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Quantum Simulations&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Modern Applications&lt;/li&gt;&#10;&lt;li&gt;3pm-4pm: Review and Q&amp;A &amp; Anthony Rayner&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-function"/>
+            <column name="BADGE" value="350.00"/>
+            <column name="IMAGE_URL" value="img/ai.jpg"/>
+            <column name="START_DATE" valueDate="2022-01-17T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-01-17T16:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="10"/>
+            <column name="CATEGORY" value="workshop"/>
+            <column name="TITLE" value="HIPAA Compliance"/>
+            <column name="SUBTITLE" value="Ensuring Your App Meets HIPAA Compliancies"/>
+            <column name="BODY" value="HIPPA compliance is required for any application that deals with sensitive data such as medical history of patients. In this workshop you will understand the requirements that must be met before release, with special focus on personal sensitive data. It starts at 9 am and ends at 3 pm with lunch served at noon."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;9am-10am: Introduction to HIPAA&lt;/li&gt;&#10;&lt;li&gt;10am-11am: HIPAA Compliance Checklist&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Restricted Personal Data&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: App-Focused Risk Assessment&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-medkit"/>
+            <column name="BADGE" value="140.00"/>
+            <column name="IMAGE_URL" value="img/hr.jpg"/>
+            <column name="START_DATE" valueDate="2022-01-27T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-01-27T15:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="11"/>
+            <column name="CATEGORY" value="workshop"/>
+            <column name="TITLE" value="Automated Testing"/>
+            <column name="SUBTITLE" value="Validate App Functionality Before Release"/>
+            <column name="BODY" value="This workshop covers automated build tools from you can setup unit, acceptance and UI testing. We will cover continuous integration and version control systems related to automated testing. A manager will provide insight on how to prepare your software quality assurance team to cover all bases before, during and after tests, thus ensuring a release without bugs."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Automated Build Tools&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Unit, Acceptance and UI Testing&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Continuous Integration (CI)&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Version Control Systems&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Coding Standards&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Managing Integrated Testing Projects&lt;/li&gt;&#10;&lt;li&gt;3pm-4pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-check-square-o"/>
+            <column name="BADGE" value="300.00"/>
+            <column name="IMAGE_URL" value="img/chatbots.jpg"/>
+            <column name="START_DATE" valueDate="2022-02-06T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-02-06T16:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="12"/>
+            <column name="CATEGORY" value="workshop"/>
+            <column name="TITLE" value="Database Modeling"/>
+            <column name="SUBTITLE" value="Design Data Models With Referential Integrity"/>
+            <column name="BODY" value="This workshop covers several design patterns for data modeling, including graphs and classic models. There will be software tools available for the hands-on lab, so bring your laptop. It will start at 8 am and ends at 4 pm. Lunch will be served, with vegan options for those interested."/>
+            <column name="SECONDARY_BODY" value="&lt;ul&gt;&#10;&lt;li&gt;8am-9am: Data Models Overview&lt;/li&gt;&#10;&lt;li&gt;9am-10am: Graph Data Models&lt;/li&gt;&#10;&lt;li&gt;10am-11am: Classic Data Modeling&lt;/li&gt;&#10;&lt;li&gt;11am-Noon: Performance-Driven Analysis&lt;/li&gt;&#10;&lt;li&gt;Noon-1pm: Lunch&lt;/li&gt;&#10;&lt;li&gt;1pm-2pm: Software Tools for Data Modeling&lt;/li&gt;&#10;&lt;li&gt;2pm-3pm: Data Models Hands-on Lab&lt;/li&gt;&#10;&lt;li&gt;3pm-4pm: Review and Q&amp;A&lt;/li&gt;&#10;&lt;/ul&gt;"/>
+            <column name="ICON_CLASS" value="fa-database"/>
+            <column name="BADGE" value="220.00"/>
+            <column name="IMAGE_URL" value="img/collaboration.jpg"/>
+            <column name="START_DATE" valueDate="2022-02-16T08:00:00"/>
+            <column name="END_DATE" valueDate="2022-02-16T16:00:00"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="13"/>
+            <column name="CATEGORY" value="badge"/>
+            <column name="TITLE" value="Fernanda Mendez"/>
+            <column name="SUBTITLE" value="Product Manager"/>
+            <column name="BODY" value="fernanda.mendez@yourcompany.com"/>
+            <column name="SECONDARY_BODY"/>
+            <column name="ICON_CLASS"/>
+            <column name="BADGE"/>
+            <column name="IMAGE_URL" value="img/persona-female01-apex.png"/>
+            <column name="START_DATE"/>
+            <column name="END_DATE"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="14"/>
+            <column name="CATEGORY" value="badge"/>
+            <column name="TITLE" value="Krist Grohl"/>
+            <column name="SUBTITLE" value="Quality Manager"/>
+            <column name="BODY" value="k.grohl@yourcompany.com"/>
+            <column name="SECONDARY_BODY"/>
+            <column name="ICON_CLASS"/>
+            <column name="BADGE"/>
+            <column name="IMAGE_URL" value="img/persona-male03.png"/>
+            <column name="START_DATE"/>
+            <column name="END_DATE"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="15"/>
+            <column name="CATEGORY" value="badge"/>
+            <column name="TITLE" value="Charles Statman"/>
+            <column name="SUBTITLE" value="QA Specialist"/>
+            <column name="BODY" value="charlie.s@yourcompany.com"/>
+            <column name="SECONDARY_BODY"/>
+            <column name="ICON_CLASS"/>
+            <column name="BADGE"/>
+            <column name="IMAGE_URL" value="img/persona-male01-apex.png"/>
+            <column name="START_DATE"/>
+            <column name="END_DATE"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="16"/>
+            <column name="CATEGORY" value="badge"/>
+            <column name="TITLE" value="Susan Parrish"/>
+            <column name="SUBTITLE" value="Software Developer"/>
+            <column name="BODY" value="susan.parrish@yourcompany.com"/>
+            <column name="SECONDARY_BODY"/>
+            <column name="ICON_CLASS"/>
+            <column name="BADGE"/>
+            <column name="IMAGE_URL" value="img/persona-female04-oracle.png"/>
+            <column name="START_DATE"/>
+            <column name="END_DATE"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="17"/>
+            <column name="CATEGORY" value="badge"/>
+            <column name="TITLE" value="Johnnathan Brie"/>
+            <column name="SUBTITLE" value="Team Lead"/>
+            <column name="BODY" value="johnathan.b@yourcompany.com"/>
+            <column name="SECONDARY_BODY"/>
+            <column name="ICON_CLASS"/>
+            <column name="BADGE"/>
+            <column name="IMAGE_URL" value="img/persona-male04-apex.png"/>
+            <column name="START_DATE"/>
+            <column name="END_DATE"/>
+        </insert>
+        <insert tableName="EBA_UT_DEMO_CARDS">
+            <column name="ID" valueNumeric="18"/>
+            <column name="CATEGORY" value="badge"/>
+            <column name="TITLE" value="Diana Flores"/>
+            <column name="SUBTITLE" value="CFO"/>
+            <column name="BODY" value="diana.flores@yourcompany.com"/>
+            <column name="SECONDARY_BODY"/>
+            <column name="ICON_CLASS"/>
+            <column name="BADGE"/>
+            <column name="IMAGE_URL" value="img/persona-female03.png"/>
+            <column name="START_DATE"/>
+            <column name="END_DATE"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
