@@ -8,7 +8,7 @@ read -p "Compartment OCID: " compartment
 
 read -p "Production database instance name: " name
 
-read -p "Production database database name (if not $name) : " dbname
+read -p "Production instance $name database name (if not $name) : " dbname
 
 if [ -z $dbname ]; then
    export dbname=$name
