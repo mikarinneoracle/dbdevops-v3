@@ -11,7 +11,7 @@ read -p "Production database instance name: " name
 read -p "Production database database name (if not $name) : " dbname
 
 if [ -z $dbname ]; then
-   export $dbname=$name
+   export dbname=$name
 fi
 
 read -p "Development database instance name prefix (e.g. Dev): " dev_name
