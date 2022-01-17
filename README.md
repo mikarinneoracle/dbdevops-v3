@@ -1,6 +1,8 @@
 Have created scripts to facilitate APEX and DB development on Oracle Cloud (OCI) with Autonomous database using Terraform and Liquibase.
 
-## Fork the repo
+## Instructions:
+
+* Fork the repo
 * Create Developer Image vm instance (from Cloud UI) to OCI and setup oci cli on the vm once created and running; access with “ssh opc@ -A”
 * Clone the git repo to the vm over ssh from the GitHub fork
 * Go to /scripts
