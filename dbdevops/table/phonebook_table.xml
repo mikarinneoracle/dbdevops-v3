@@ -5,7 +5,7 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
-	<changeSet id="64488f4d2490e5dae673ae5cc65613c5013bc1c9" author="(PHONEBOOK)-Generated" failOnError="false"    >
+	<changeSet id="9647e20dbe670bb9678c8cc55ac150bf7f0770c6" author="(PHONEBOOK)-Generated" failOnError="false"    >
 		<n0:createSxmlObject objectName="PHONEBOOK" objectType="TABLE" ownerName="PHONEBOOK"   >
 			<n0:source><![CDATA[
   <TABLE xmlns="http://xmlns.oracle.com/ku" version="1.0">
@@ -18,7 +18,8 @@
             <DATATYPE>NUMBER</DATATYPE>
             <IDENTITY_COLUMN>
                <SCHEMA>PHONEBOOK</SCHEMA>
-               <GENERATION>ALWAYS</GENERATION>
+               <GENERATION>DEFAULT</GENERATION>
+               <ON_NULL></ON_NULL>
                <START_WITH>21</START_WITH>
                <INCREMENT>1</INCREMENT>
                <MINVALUE>1</MINVALUE>
