@@ -12,12 +12,12 @@ Have created scripts to facilitate APEX and DB development on Oracle Cloud (OCI)
 
 ## Available scripts:
 
-* clone.sh to copy the “prod” (master) database contents to local git (e.g. tables and APEX app) to a temp branch that can be merged to master
-* dev.sh to create a new “dev” Autonomous db instance with optional APEX for a task-id
-* devcopy.sh to copy contents from git master branch to the instance above (or another) with a task-id
-* branch.sh to get changes from “dev” database to a feature branch in git with a task-id that can be merged to master
-* merge.sh to copy the contents from git master to “prod” (master) database
-* destroy.sh to destroy all resources (mainly the autonomous database instance) for the “dev” with a task-id
+* `clone.sh` to copy the “prod” (master) database contents to local git (e.g. tables and APEX app) to a temp branch that can be merged to master
+* `dev.sh` to create a new “dev” Autonomous db instance with optional APEX for a task-id
+* `devcopy.sh` to copy contents from git master branch to the instance above (or another) with a task-id
+* `branch.sh` to get changes from “dev” database to a feature branch in git with a task-id that can be merged to master
+* `merge.sh` to copy the contents from git master to “prod” (master) database
+* `destroy.sh` to destroy all resources (mainly the autonomous database instance) for the “dev” with a task-id
 
 The script names are a bit funny, but hope it is ok - you can change them to wahtever you like
 
