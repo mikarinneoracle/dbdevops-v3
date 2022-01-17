@@ -43,7 +43,7 @@ cd ../dbdevops
 
 git checkout master
 
-if [ -f "wallet-$task_id" ]; then
+if [ -f "wallet-$task_id.zip" ]; then
     git rm wallet-$task_id.zip
     git commit -m "wallet for dev task ${task_id} removed"
     git push origin master
