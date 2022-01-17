@@ -19,6 +19,6 @@ Have created scripts to facilitate APEX and DB development on Oracle Cloud (OCI)
 * `merge.sh` to copy the contents from git master to “prod” (master) database
 * `destroy.sh` to destroy all resources (mainly the autonomous database instance) for the “dev” with a task-id
 
-The script names are a bit funny, but hope it is ok - you can change them to wahtever you like
+The script names are a bit funny, but hope it is ok - you can change them to whatever you like
 
 Happy coding!
