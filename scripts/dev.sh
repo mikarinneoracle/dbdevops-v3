@@ -77,3 +77,5 @@ git commit -m "feature branch for task ${task_id}"
 git push origin $task_id-task
 
 git checkout master
+
+cd ../scripts

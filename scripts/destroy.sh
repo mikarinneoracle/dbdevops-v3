@@ -53,3 +53,5 @@ if [ -f "wallet-$task_id.zip" ]; then
 fi
 
 git push origin --delete $task_id-task
+
+cd ../scripts

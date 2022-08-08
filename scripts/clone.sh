@@ -54,3 +54,5 @@ git commit -m "prod copy at $timestamp"
 git push origin $timestamp-copy-prod
 
 git checkout master
+
+cd ../scripts

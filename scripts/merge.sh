@@ -9,6 +9,8 @@ fi
 export name=$prod_instance_name
 
 read -p "${name} db schema/user: " schema
+
+read -p "${name} workspace: " wsname
  
 read -s -p "${name} db password: " pwd
  
@@ -57,7 +59,8 @@ if [ -n "${application_id}" ]; then
     if [ -f "f${application_id}.xml" ]; then
         echo "Copying application ${application_id} to ${prod_instance_name}/${schema}."
         printf "declare\nl_workspace_id number;\nbegin\n" > upd_apex_privs.sql;
-        printf "l_workspace_id := apex_util.find_security_group_id (p_workspace => 'WORKSPACE_NAME');\n" >> upd_apex_privs.sql;
+        printf "l_workspace_id := apex_util.find_security_group_id (p_workspace => '${wsname}');\n" >> upd_apex_privs.sql;
+        printf "dbms_output.Put_line(l_workspace_id);" >> upd_apex_privs.sql;
         printf "apex_util.set_security_group_id (p_security_group_id => l_workspace_id);\n" >> upd_apex_privs.sql;
         printf "APEX_UTIL.PAUSE(2);\n" >> upd_apex_privs.sql;
         printf "end;\n/\n" >> upd_apex_privs.sql;
@@ -66,10 +69,12 @@ if [ -n "${application_id}" ]; then
         
         sql /nolog @./upd_apex.sql
         rm -f upd_apex.sql
-        rm -f upd_apex.sql
+        rm -f upd_apex_privs.sql
     else
         echo "f${application_id}.xml not found. App not copied to ${prod_instance_name}."
     fi
 fi
 
 rm -f wallet.zip
+
+cd ../scripts
