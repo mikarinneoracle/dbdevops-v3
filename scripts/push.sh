@@ -30,7 +30,7 @@ fi
 
 cd ../dbdevops
 
-echo "*** COPYING FROM REPO TO Dev-${task_id} WITH A TASK ID ${task_id} ***"
+echo "*** COPIES MASTER TO ATP Dev-${task_id} ***"
 
 git checkout $task_id-task
 

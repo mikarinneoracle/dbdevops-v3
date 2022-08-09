@@ -23,7 +23,7 @@ else
     fi    
 fi
 
-echo "*** ADD CHANGES FROM Dev${task_id} TO DEV FEATURE BRANCH ${task_id}-task ***"
+echo "*** ADDS CHANGES FROM ATP Dev${task_id} TO FEATURE BRANCH ${task_id}-task ***"
 
 git checkout $task_id-task
 

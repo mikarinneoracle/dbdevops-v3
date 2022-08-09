@@ -54,7 +54,7 @@ else
     git push origin --quiet --delete $task_id-task 
 fi
 
-echo "*** LAUNCHES A DEV INSTANCE Dev${task_id} FROM REPO AND CREATES FEATURE BRANCH ${task_id}-task ***"
+echo "*** CREATES ATP Dev${task_id} WITH A FEATURE BRANCH ${task_id}-task ***"
 terraform apply -auto-approve > tf.out
 
 tail -2 tf.out
