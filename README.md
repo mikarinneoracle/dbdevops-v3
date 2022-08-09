@@ -13,7 +13,7 @@ Have created scripts to facilitate APEX and DB development on Oracle Cloud (OCI)
 
 * `create.sh` to create a new Autonomous db dev instance for a task-id
 * `pull.sh` to get changes from “dev” database to a feature branch with a task-id in git that can be then merged to master using a pull request, for example
-* `push.sh` to copy contents from git master branch to Autonomous db dev instance with a task-id
+* `push.sh` to create a dev env to Autonomous db instance with a task-id optionally with APXE and copy contents from git master branch to it
 * `destroy.sh` to destroy all resources (mainly the autonomous database instance) for the “dev” with a task-id
 
 Happy coding!
