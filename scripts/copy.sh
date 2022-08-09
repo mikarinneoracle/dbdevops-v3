@@ -91,7 +91,7 @@ if [ -n "${wsname}" ]; then
     printf "    apex_util.set_security_group_id( apex_util.find_security_group_id( p_workspace => '${schema}'));\n" >> upd_apex.sql
     printf "    apex_util.create_user(\n" >> upd_apex.sql
     printf "        p_user_name               => '${schema}',\n" >> upd_apex.sql
-    printf "        p_email_address           => 'dummy@oracle.com',\n" >> upd_apex.sql
+    printf "        p_email_address           => '${schema}',\n" >> upd_apex.sql
     printf "        p_default_schema          => '${schema}',\n" >> upd_apex.sql
     printf "        p_allow_access_to_schemas => '${schema}',\n" >> upd_apex.sql
     printf "        p_web_password            => '${pwd}',\n" >> upd_apex.sql
